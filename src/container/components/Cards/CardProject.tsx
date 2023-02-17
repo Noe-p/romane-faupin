@@ -12,7 +12,7 @@ interface CardProjectProps {
 }
 
 export function CardProject(props: CardProjectProps): JSX.Element {
-  const { className, project, onClick } = props;
+  const { className, project } = props;
   const [projectHover, setProjectHover] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
@@ -29,7 +29,6 @@ export function CardProject(props: CardProjectProps): JSX.Element {
 
   return (
     <ProjectContainer
-      onClick={onClick}
       onMouseEnter={() => setProjectHover(project.id)}
       onMouseLeave={() => setProjectHover('')}
       className={className}

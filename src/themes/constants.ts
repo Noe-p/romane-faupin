@@ -11,4 +11,6 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   LIGHT_GREY: '#F5F5F5',
   DARK_GREY: '#A9A9A9',
+  PRIMARY: '#F4EBD9',
+  SECONDARY: '#698996',
 };

@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { FullPageLoader } from '../../components';
-import { DetailPage } from '../../container/pages';
+import { BookPage } from '../../container/pages/Books';
 import { PageBaseProps } from '../../types';
 
 type DynamicPageExempleProps = {
@@ -12,7 +12,7 @@ export default function DynamicPageExemple(
 ): JSX.Element {
   const { idPage } = props;
   if (!idPage) return <FullPageLoader />;
-  return <DetailPage idPage={idPage} />;
+  return <BookPage idPage={idPage} />;
 }
 
 export async function getStaticProps({

@@ -8,12 +8,15 @@
   },
   "about": {
     "name": "À propos",
-    "title": "A propos",
-    "subtitle": "C'est la page à propos",
-    "link": "Retour à l'accueil"
+    "description": {
+      "part1": "Née en 1999, vit et travaille à Paris.",
+      "part2": "Après un bac ES en candidat libre et des études technique de photographie, elle s'oriente vers une production plasticienne.",
+      "part3": "La photographie étant son médium de prédilection, elle attache autant d'importance à la prise de vue qu'aux processus d'impression et aux supports. Les différents procédés plastiques qu'elle utilise, tels que l'émulsion liquide, linogravure et monotype, sont en relation directe avec le contenu de ses images.",
+      "part4": "Ses projets questionnent le \"faire-mémoire\" et traitent de l'évanescence et de l'obsolescence des objects, lieux, personnes et images. Elle conserve, prolonge et valorise le fragment du \"ça a été\"."
+    }
   },
   "generics": {
-    "copyright": "Copyright © 2020 - Starter-template - Tous droits réservés",
+    "copyright": "Copyright © 2020 - Romane FAUPIN - Tous droits réservés",
     "designed": "Conçu et développé par "
   },
   "common": {

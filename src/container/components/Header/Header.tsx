@@ -22,7 +22,7 @@ export function Header(props: HeaderProps): JSX.Element {
     <Main className={className}>
       <ImageBackground src='/header.jpg' alt='header' />
       <Title $isAnimated={isAnimated} white>
-        {t('home.name')}
+        {'Romane FAUPIN'}
       </Title>
       <SubTitle $isAnimated={isAnimated} white>
         {t('home.subTitle')}
@@ -38,6 +38,19 @@ const Main = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  z-index: 0;
+
+  ::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const ImageBackground = styled(Image)`

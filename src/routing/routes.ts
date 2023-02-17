@@ -1,5 +1,7 @@
 export const ROUTES = {
   home: '/',
   about: '/about',
-  dynamicPage: '/dynamicPage',
+  works: '/works',
+  books: '/books',
+  contact: '/contact',
 };

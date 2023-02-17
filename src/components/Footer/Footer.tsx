@@ -15,34 +15,39 @@ export function Footer(props: FooterProps): JSX.Element {
   return (
     <Main className={className}>
       <InfosContainer>
-        <LinkStyled href='mailto:noephilippe29@gmail.com'>
-          {t('noephilippe29@gmail.com')}
+        <LinkStyled href='mailto:faupin.romane@gmail.com' target='_blank'>
+          {t('faupin.romane@gmail.com')}
         </LinkStyled>
-        <LinkStyled href='tel:0781533181'>{t('07 81 53 31 81')}</LinkStyled>
-        <LinkStyled href='https://maps.google.com/maps?q=172+avenue+winston+churchill+rennes'>
-          {t('16 avenue des Lilas - 35000 Rennes')}
+        <LinkStyled href='tel:0624745676' target='_blank'>
+          {t('06 24 74 56 76')}
         </LinkStyled>
       </InfosContainer>
       <SocialMediasContainer>
-        <a href=''>
+        <a
+          rel='noreferrer'
+          href='https://www.facebook.com/romane.faupin'
+          target='_blank'
+        >
           <SocialLogo
             src='/social-icons/Black/Facebook_black.svg'
             alt='facebook'
           />
         </a>
-        <a href=''>
+        <a
+          href='https://www.instagram.com/romane_fpn/?igshid=YmMyMTA2M2Y%3D'
+          target='_blank'
+          rel='noreferrer'
+        >
           <SocialLogo
             src='/social-icons/Black/Instagram_black.svg'
             alt='instagram'
           />
         </a>
-        <a href=''>
-          <SocialLogo
-            src='/social-icons/Black/Twitter_black.svg'
-            alt='twitter'
-          />
-        </a>
-        <a href=''>
+        <a
+          href='https://www.linkedin.com/in/romane-faupin-8ab717256/'
+          target='_blank'
+          rel='noreferrer'
+        >
           <SocialLogo
             src='/social-icons/Black/Linkedin_black.svg'
             alt='linkedin'
@@ -51,11 +56,11 @@ export function Footer(props: FooterProps): JSX.Element {
       </SocialMediasContainer>
       <CopyRight>
         {t('generics.designed')}
-        <LinkStyled href='https://noe-philippe.com'>
+        <LinkStyled href='https://noe-philippe.com' target='_blank'>
           {'Noé PHILIPPE'}
         </LinkStyled>
       </CopyRight>
-      <CopyRight>{t('generics.copyright')} </CopyRight>
+      <CopyRight>{t('generics.copyright')}</CopyRight>
     </Main>
   );
 }
@@ -68,6 +73,7 @@ const Main = styled.div`
   width: 100%;
   bottom: 0;
   flex-direction: column;
+  z-index: 100;
 `;
 
 const SocialMediasContainer = styled.div`
@@ -99,4 +105,5 @@ const InfosContainer = styled.div`
 
 const LinkStyled = styled(Link)`
   color: ${COLORS.DARK_GREY};
+  margin: 2px;
 `;

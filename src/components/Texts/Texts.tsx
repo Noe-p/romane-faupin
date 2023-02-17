@@ -13,30 +13,31 @@ interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
   className?: string;
   white?: boolean;
   href: string;
+  target?: string;
 }
 
 export function H1(props: TextsProps): JSX.Element {
-  const { children, className } = props;
+  const { children, className, white } = props;
   return (
-    <H1Styled {...props} className={className}>
+    <H1Styled $white={white} {...props} className={className}>
       {children}
     </H1Styled>
   );
 }
 
 export function H2(props: TextsProps): JSX.Element {
-  const { children, className } = props;
+  const { children, className, white } = props;
   return (
-    <H2Styled {...props} className={className}>
+    <H2Styled $white={white} {...props} className={className}>
       {children}
     </H2Styled>
   );
 }
 
 export function H3(props: TextsProps): JSX.Element {
-  const { children, className } = props;
+  const { children, className, white } = props;
   return (
-    <H3Styled {...props} className={className}>
+    <H3Styled $white={white} {...props} className={className}>
       {children}
     </H3Styled>
   );
@@ -52,9 +53,9 @@ export function P1(props: TextsProps): JSX.Element {
 }
 
 export function P2(props: TextsProps): JSX.Element {
-  const { children, className } = props;
+  const { children, className, white } = props;
   return (
-    <P2Styled {...props} className={className}>
+    <P2Styled $white={white} {...props} className={className}>
       {children}
     </P2Styled>
   );
@@ -95,12 +96,14 @@ const H1Styled = styled.h1`
 
 const H2Styled = styled.h2`
   margin: 0;
-  color: ${COLORS.BLACK};
+  color: ${({ $white }: { $white?: boolean }) =>
+    $white ? 'white' : COLORS.BLACK};
 `;
 
 const H3Styled = styled.h3`
   margin: 0;
-  color: ${COLORS.BLACK};
+  color: ${({ $white }: { $white?: boolean }) =>
+    $white ? 'white' : COLORS.BLACK};
 `;
 
 const P1Styled = styled.p`
@@ -112,6 +115,8 @@ const P1Styled = styled.p`
 const P2Styled = styled(P1)`
   margin: 0;
   font-size: 14px;
+  color: ${({ $white }: { $white?: boolean }) =>
+    $white ? 'white' : COLORS.BLACK};
 `;
 
 const LabelStyled = styled(P1)`

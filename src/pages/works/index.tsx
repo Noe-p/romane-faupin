@@ -1,9 +1,9 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { DynamicPages } from '../../container/pages';
+import { WorksPage } from '../../container/pages';
 import { PageBaseProps } from '../../types';
 
 export default function index(): JSX.Element {
-  return <DynamicPages />;
+  return <WorksPage />;
 }
 
 export async function getStaticProps({

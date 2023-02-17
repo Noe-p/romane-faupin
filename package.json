@@ -21,6 +21,7 @@
   "dependencies": {
     "@bobjs/date": "^0.2.0",
     "@bobjs/utils": "^0.1.2",
+    "@heroicons/react": "^2.0.16",
     "@noe-p/react-buttons-components": "^2.7.9",
     "axios": "^0.21.1",
     "next": "latest",

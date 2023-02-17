@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ROUTES } from '../../routing';
 import { COLORS } from '../../themes';
-import { Image } from '../Medias';
 import { H1, P1 } from '../Texts';
 
 interface NavBarProps {
@@ -30,32 +29,50 @@ export function NavBar(props: NavBarProps): JSX.Element {
     window.addEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    console.log('NavBar', isMobile);
-  }, [isMobile]);
-
   return (
     <Main className={className}>
       <Content>
         <Left>
           <LogoContainer onClick={() => router.push(ROUTES.home)}>
-            <Logo src='/logo.svg' alt='logo' />
-            <TextNavigation $selected={router.pathname === ROUTES.home}>
-              {t('home.name')}
+            <TextNavigation
+              $selected={
+                `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                ROUTES.home
+              }
+            >
+              {'Romane FAUPIN'}
             </TextNavigation>
           </LogoContainer>
         </Left>
         {!isMobile ? (
           <Right>
-            <RightLink onClick={() => router.push(ROUTES.dynamicPage)}>
+            <RightLink onClick={() => router.push(ROUTES.works)}>
               <TextNavigation
-                $selected={router.pathname === ROUTES.dynamicPage}
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.works
+                }
               >
-                {t('dynamicPage')}
+                {t('works')}
+              </TextNavigation>
+            </RightLink>
+            <RightLink onClick={() => router.push(ROUTES.books)}>
+              <TextNavigation
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.books
+                }
+              >
+                {t('books')}
               </TextNavigation>
             </RightLink>
             <RightLink onClick={() => router.push(ROUTES.about)}>
-              <TextNavigation $selected={router.pathname === ROUTES.about}>
+              <TextNavigation
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.about
+                }
+              >
                 {t('about.name')}
               </TextNavigation>
             </RightLink>
@@ -68,22 +85,49 @@ export function NavBar(props: NavBarProps): JSX.Element {
             />
             <Menu $isOpen={isMenuOpen}>
               <MenuLink
-                $selected={router.pathname === ROUTES.home}
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.home
+                }
                 onClick={() => router.push(ROUTES.home)}
               >
                 {t('home.name')}
               </MenuLink>
               <MenuLink
-                $selected={router.pathname === ROUTES.dynamicPage}
-                onClick={() => router.push(ROUTES.dynamicPage)}
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.works
+                }
+                onClick={() => router.push(ROUTES.works)}
               >
-                {t('dynamicPage')}
+                {t('works')}
               </MenuLink>
               <MenuLink
-                $selected={router.pathname === ROUTES.about}
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.books
+                }
+                onClick={() => router.push(ROUTES.books)}
+              >
+                {t('books')}
+              </MenuLink>
+              <MenuLink
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.about
+                }
                 onClick={() => router.push(ROUTES.about)}
               >
                 {t('about.name')}
+              </MenuLink>
+              <MenuLink
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.contact
+                }
+                onClick={() => router.push(ROUTES.contact)}
+              >
+                {t('contact')}
               </MenuLink>
             </Menu>
           </Right>
@@ -100,6 +144,7 @@ const Main = styled.div`
   position: fixed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
+  z-index: 1;
 `;
 
 const Content = styled.div`
@@ -143,12 +188,6 @@ const LogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`;
-
-const Logo = styled(Image)`
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
 `;
 
 const TextNavigation = styled(P1)<{ $selected?: boolean }>`

@@ -3,7 +3,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
@@ -23,6 +23,7 @@ interface MediasSwiperProps {
 
 export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const { className, isOpen, setIsOpen, medias, currentImage = 0 } = props;
+  const [hideArrows, setHideArrows] = useState(false);
 
   SwiperCore.use([Navigation]);
 
@@ -35,8 +36,16 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
         <CloseIconContainer onClick={setIsOpen}>
           <CloseIcon />
         </CloseIconContainer>
-        <ArrowLeftIconStyled ref={navigationPrevRef} className='prev' />
-        <ArrowRightIconStyled ref={navigationNextRef} className='next' />
+        <ArrowLeftIconStyled
+          ref={navigationPrevRef}
+          className='prev'
+          $hide={hideArrows}
+        />
+        <ArrowRightIconStyled
+          ref={navigationNextRef}
+          className='next'
+          $hide={hideArrows}
+        />
         <ReactSwiperStyled
           navigation={{
             prevEl: 'prev',
@@ -55,7 +64,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           initialSlide={currentImage}
         >
           {medias.map((media) => (
-            <SwiperSlide key={media}>
+            <SwiperSlide key={media} onClick={() => setHideArrows(!hideArrows)}>
               <ImageContainer>
                 <ImageStyled src={media} alt={media} />
               </ImageContainer>
@@ -120,7 +129,7 @@ const CloseIcon = styled(XMarkIcon)`
   height: 40px;
 `;
 
-const ArrowLeftIconStyled = styled(ChevronLeftIcon)`
+const ArrowLeftIconStyled = styled(ChevronLeftIcon)<{ $hide: boolean }>`
   position: absolute;
   top: 50%;
   left: 50px;
@@ -131,9 +140,16 @@ const ArrowLeftIconStyled = styled(ChevronLeftIcon)`
   background-color: white;
   padding: 10px;
   border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+
+  @media (max-width: 768px) {
+    left: 20px;
+    width: 40px;
+  }
 `;
 
-const ArrowRightIconStyled = styled(ChevronRightIcon)`
+const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
   position: absolute;
   top: 50%;
   right: 50px;
@@ -144,4 +160,11 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)`
   background-color: white;
   padding: 10px;
   border-radius: 50%;
+  transition: opacity 0.3s ease-in-out;
+  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+
+  @media (max-width: 768px) {
+    right: 20px;
+    width: 40px;
+  }
 `;

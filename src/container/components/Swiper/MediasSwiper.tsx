@@ -97,7 +97,7 @@ const ImageStyled = styled(Image)`
 
 const CloseIconContainer = styled.div`
   position: absolute;
-  top: 70px;
+  top: 50px;
   right: 70px;
   cursor: pointer;
   z-index: 100;
@@ -108,6 +108,10 @@ const CloseIconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    top: 100px;
+  }
 `;
 
 const CloseIcon = styled(XMarkIcon)`
@@ -119,19 +123,25 @@ const CloseIcon = styled(XMarkIcon)`
 const ArrowLeftIconStyled = styled(ChevronLeftIcon)`
   position: absolute;
   top: 50%;
-  left: 40px;
+  left: 50px;
   cursor: pointer;
   z-index: 100;
-  width: 40px;
+  width: 60px;
   transform: translateY(-50%);
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
 `;
 
 const ArrowRightIconStyled = styled(ChevronRightIcon)`
   position: absolute;
   top: 50%;
-  right: 40px;
+  right: 50px;
   cursor: pointer;
   z-index: 100;
-  width: 40px;
+  width: 60px;
   transform: translateY(-50%);
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
 `;

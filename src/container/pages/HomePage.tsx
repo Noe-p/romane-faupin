@@ -58,7 +58,7 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     margin-top: 10px;
   }
 `;

@@ -36,13 +36,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const navigationNextRef = React.useRef(null);
 
   useEffect(() => {
-    window.screen.orientation.onchange = () => {
-      setScreenOrientation(
-        window.screen.orientation.type === 'portrait-primary'
-          ? 'portrait-primary'
-          : 'landscape-primary'
-      );
-    };
+    setScreenOrientation('landscape-primary');
   }, []);
 
   return (

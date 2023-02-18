@@ -42,21 +42,11 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           ref={navigationPrevRef}
           className='prev'
           $hide={hideArrows}
-          onClick={() =>
-            setCurrentMedia(currentMedia === 0 ? 0 : currentMedia - 1)
-          }
         />
         <ArrowRightIconStyled
           ref={navigationNextRef}
           className='next'
           $hide={hideArrows}
-          onClick={() =>
-            setCurrentMedia(
-              currentMedia === medias.length - 1
-                ? currentMedia
-                : currentMedia + 1
-            )
-          }
         />
         <ReactSwiperStyled
           onSwiper={(swiper) => setSwiper(swiper)}
@@ -71,6 +61,9 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
               (swiper.params.navigation as NavigationOptions).nextEl =
                 navigationNextRef.current;
             }
+          }}
+          onSlideChange={(swiper) => {
+            setCurrentMedia(swiper?.activeIndex || 0);
           }}
           slidesPerView={1}
           spaceBetween={50}
@@ -210,6 +203,10 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   transform: translateX(-50%);
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+
+  @media (max-width: 768px) {
+    bottom: 120px;
+  }
 `;
 
 const PaginationButton = styled.button<{ $active: boolean }>`

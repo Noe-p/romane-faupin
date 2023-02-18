@@ -21,12 +21,12 @@ export function Header(props: HeaderProps): JSX.Element {
   return (
     <Main className={className}>
       <ImageBackground src='/header.jpg' alt='header' />
-      <Title $isAnimated={isAnimated} white>
+      {/* <Title $isAnimated={isAnimated} white>
         {'Romane FAUPIN'}
       </Title>
       <SubTitle $isAnimated={isAnimated} white>
         {t('home.subTitle')}
-      </SubTitle>
+      </SubTitle> */}
     </Main>
   );
 }

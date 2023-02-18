@@ -65,7 +65,7 @@ const Main = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${COLORS.LIGHT_GREY};
-  z-index: 100000 !important;
+  z-index: 100;
 `;
 
 const ReactSwiperStyled = styled(ReactSwiper)`

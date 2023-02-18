@@ -104,6 +104,7 @@ const ProjectContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 92%;
+    height: 300px;
 
     ::before {
       content: '';

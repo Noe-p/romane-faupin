@@ -17,6 +17,7 @@ export function BookPage(props: BookPageProps): JSX.Element {
   const [book, setBook] = useState<Project>();
   const [isMediaSwiperOpen, setIsMediaSwiperOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [isNavClose, setIsNavClose] = useState(false);
 
   function fetchBook(id: string) {
     setBook(dataBooks.find((book) => book.id === id));
@@ -27,7 +28,7 @@ export function BookPage(props: BookPageProps): JSX.Element {
   }, []);
 
   return (
-    <Layout className={className}>
+    <Layout isNavClose={isNavClose} className={className}>
       <Main>
         <Title>{book?.name}</Title>
         <Description>{book?.description}</Description>
@@ -38,6 +39,7 @@ export function BookPage(props: BookPageProps): JSX.Element {
               onClick={() => {
                 setIsMediaSwiperOpen(true);
                 setCurrentImage(i);
+                setIsNavClose(true);
               }}
             >
               <ImageStyled src={image.url} alt={image.id} />
@@ -53,7 +55,10 @@ export function BookPage(props: BookPageProps): JSX.Element {
       </Main>
       <MediasSwiper
         isOpen={isMediaSwiperOpen}
-        setIsOpen={() => setIsMediaSwiperOpen(false)}
+        setIsOpen={() => {
+          setIsMediaSwiperOpen(false);
+          setIsNavClose(false);
+        }}
         medias={book?.medias.map((image) => image.url) || []}
         currentImage={currentImage}
       />

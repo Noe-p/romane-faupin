@@ -7,14 +7,15 @@ import { NavBar } from '../Navbar';
 interface LayoutProps {
   children?: ReactNode;
   className?: string;
+  isNavClose?: boolean;
 }
 
 export function Layout(props: LayoutProps): JSX.Element {
-  const { children, className } = props;
+  const { children, className, isNavClose } = props;
 
   return (
     <Main className={className}>
-      <NavBar />
+      <NavBar isClose={isNavClose} />
       <Page>{children}</Page>
       <Footer />
     </Main>
@@ -30,4 +31,5 @@ const Page = styled.div`
   justify-content: center;
   z-index: -5;
   background-color: ${COLORS.PRIMARY};
+  min-height: 70vh;
 `;

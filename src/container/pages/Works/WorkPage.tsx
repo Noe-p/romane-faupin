@@ -17,6 +17,7 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
   const [work, setWork] = useState<Project>();
   const [isMediaSwiperOpen, setIsMediaSwiperOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const [isNavClose, setIsNavClose] = useState(false);
 
   function fetchWork(id: string) {
     setWork(dataWorks.find((work) => work.id === id));
@@ -27,7 +28,7 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
   }, []);
 
   return (
-    <Layout className={className}>
+    <Layout isNavClose={isNavClose} className={className}>
       <Main>
         <Title>{work?.name}</Title>
         <Description>{work?.description}</Description>
@@ -38,6 +39,7 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
               onClick={() => {
                 setIsMediaSwiperOpen(true);
                 setCurrentImage(i);
+                setIsNavClose(true);
               }}
             >
               <ImageStyled src={image.url} alt={image.id} />
@@ -53,7 +55,10 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
       </Main>
       <MediasSwiper
         isOpen={isMediaSwiperOpen}
-        setIsOpen={() => setIsMediaSwiperOpen(false)}
+        setIsOpen={() => {
+          setIsMediaSwiperOpen(false);
+          setIsNavClose(false);
+        }}
         medias={work?.medias.map((image) => image.url) || []}
         currentImage={currentImage}
       />

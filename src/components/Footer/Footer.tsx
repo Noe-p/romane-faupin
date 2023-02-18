@@ -49,7 +49,7 @@ export function Footer(props: FooterProps): JSX.Element {
           rel='noreferrer'
         >
           <SocialLogo
-            src='/social-icons/Black/Linkedin_black.svg'
+            src='/social-icons/Black/LinkedIN_black.svg'
             alt='linkedin'
           />
         </a>

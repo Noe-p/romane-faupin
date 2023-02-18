@@ -9,10 +9,11 @@ import { H1, P1 } from '../Texts';
 
 interface NavBarProps {
   className?: string;
+  isClose?: boolean;
 }
 
 export function NavBar(props: NavBarProps): JSX.Element {
-  const { className } = props;
+  const { className, isClose } = props;
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ export function NavBar(props: NavBarProps): JSX.Element {
   }, []);
 
   return (
-    <Main className={className}>
+    <Main className={className} $isClose={isClose}>
       <Content>
         <Left>
           <LogoContainer onClick={() => router.push(ROUTES.home)}>
@@ -128,19 +129,25 @@ export function NavBar(props: NavBarProps): JSX.Element {
   );
 }
 
-const Main = styled.div`
+const Main = styled.div<{ $isClose?: boolean }>`
   width: 100%;
-  display: flex;
   justify-content: center;
+  display: flex;
   position: fixed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 0;
+  z-index: 10;
+  height: ${(props) => (props.$isClose ? '0px' : '70px')};
+  transition: all 0.3s;
+  z-index: 10;
+  opacity: ${(props) => (props.$isClose ? '0' : '1')};
 `;
 
 const Content = styled.div`
   width: 70%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   position: relative;
 
@@ -170,7 +177,6 @@ const Right = styled.div`
 
 const RightLink = styled.div`
   margin-left: 20px;
-
   cursor: pointer;
 `;
 
@@ -218,6 +224,7 @@ const Menu = styled.div<{ $isOpen: boolean }>`
   justify-content: center;
   transition: all 0.3s;
   overflow: hidden;
+  z-index: 100;
 `;
 
 const MenuLink = styled(H1)<{ $selected?: boolean }>`

@@ -5,6 +5,7 @@ import { H1, Image, Layout, P1, P2 } from '../../../components';
 import { dataWorks } from '../../../datas/works';
 import { COLORS } from '../../../themes';
 import { Project } from '../../../types';
+import { MediasSwiper } from '../../components';
 
 interface WorkPageProps {
   idPage: string;
@@ -14,6 +15,8 @@ interface WorkPageProps {
 export function WorkPage(props: WorkPageProps): JSX.Element {
   const { idPage, className } = props;
   const [work, setWork] = useState<Project>();
+  const [isMediaSwiperOpen, setIsMediaSwiperOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
   function fetchWork(id: string) {
     setWork(dataWorks.find((work) => work.id === id));
@@ -29,8 +32,14 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
         <Title>{work?.name}</Title>
         <Description>{work?.description}</Description>
         <ImagesContainer>
-          {work?.medias.map((image) => (
-            <ImageContainer key={image.id}>
+          {work?.medias.map((image, i) => (
+            <ImageContainer
+              key={image.id}
+              onClick={() => {
+                setIsMediaSwiperOpen(true);
+                setCurrentImage(i);
+              }}
+            >
               <ImageStyled src={image.url} alt={image.id} />
               {image.description && (
                 <DescriptionImageContainer>
@@ -42,6 +51,12 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
           ))}
         </ImagesContainer>
       </Main>
+      <MediasSwiper
+        isOpen={isMediaSwiperOpen}
+        setIsOpen={() => setIsMediaSwiperOpen(false)}
+        medias={work?.medias.map((image) => image.url) || []}
+        currentImage={currentImage}
+      />
     </Layout>
   );
 }
@@ -82,6 +97,7 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  cursor: pointer;
 `;
 
 const ImageStyled = styled(Image)`
@@ -92,7 +108,7 @@ const DescriptionImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 10px;
   max-width: 40%;
 
   @media (max-width: 768px) {

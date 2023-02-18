@@ -8,6 +8,7 @@ export const MEDIA_QUERIES = {
 export const COLORS = {
   GREY: '#CFCCD6',
   BLACK: '#07020D',
+  LIGHT_BLACK: '#1A1A1A',
   WHITE: '#FFFFFF',
   LIGHT_GREY: '#F5F5F5',
   DARK_GREY: '#A9A9A9',

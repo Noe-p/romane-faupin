@@ -135,7 +135,7 @@ const Main = styled.div`
   position: fixed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 100;
+  z-index: 0;
 `;
 
 const Content = styled.div`

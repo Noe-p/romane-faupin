@@ -33,7 +33,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
       <Main>
-        <CloseIconContainer onClick={setIsOpen}>
+        <CloseIconContainer onClick={setIsOpen} $hide={hideArrows}>
           <CloseIcon />
         </CloseIconContainer>
         <ArrowLeftIconStyled
@@ -104,7 +104,7 @@ const ImageStyled = styled(Image)`
   object-fit: contain;
 `;
 
-const CloseIconContainer = styled.div`
+const CloseIconContainer = styled.div<{ $hide: boolean }>`
   position: absolute;
   top: 50px;
   right: 70px;
@@ -117,6 +117,8 @@ const CloseIconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease-in-out;
+  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
 
   @media (max-width: 768px) {
     top: 100px;
@@ -144,8 +146,9 @@ const ArrowLeftIconStyled = styled(ChevronLeftIcon)<{ $hide: boolean }>`
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
 
   @media (max-width: 768px) {
-    left: 20px;
-    width: 40px;
+    left: 30px;
+    width: 30px;
+    padding: 5px;
   }
 `;
 
@@ -164,7 +167,8 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
 
   @media (max-width: 768px) {
-    right: 20px;
-    width: 40px;
+    right: 30px;
+    width: 30px;
+    padding: 5px;
   }
 `;

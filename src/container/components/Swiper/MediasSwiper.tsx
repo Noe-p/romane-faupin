@@ -3,7 +3,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
@@ -24,36 +24,29 @@ interface MediasSwiperProps {
 export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const { className, isOpen, setIsOpen, medias, currentImage = 0 } = props;
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const [hideButtons, setHideButtons] = useState(false);
+  const [hideArrows, setHideArrows] = useState(false);
   const [currentMedia, setCurrentMedia] = useState(currentImage);
-  const [screenOrientation, setScreenOrientation] = useState<
-    'portrait-primary' | 'landscape-primary'
-  >('portrait-primary');
 
   SwiperCore.use([Navigation]);
 
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
 
-  useEffect(() => {
-    setScreenOrientation('landscape-primary');
-  }, []);
-
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
       <Main>
-        <CloseIconContainer onClick={setIsOpen} $hide={hideButtons}>
+        <CloseIconContainer onClick={setIsOpen} $hide={hideArrows}>
           <CloseIcon />
         </CloseIconContainer>
         <ArrowLeftIconStyled
           ref={navigationPrevRef}
           className='prev'
-          $hide={hideButtons}
+          $hide={hideArrows}
         />
         <ArrowRightIconStyled
           ref={navigationNextRef}
           className='next'
-          $hide={hideButtons}
+          $hide={hideArrows}
         />
         <ReactSwiperStyled
           onSwiper={(swiper) => setSwiper(swiper)}
@@ -77,10 +70,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           initialSlide={currentImage}
         >
           {medias.map((media) => (
-            <SwiperSlide
-              key={media}
-              onClick={() => setHideButtons(!hideButtons)}
-            >
+            <SwiperSlide key={media} onClick={() => setHideArrows(!hideArrows)}>
               <ImageContainer>
                 <ImageStyled src={media} alt={media} />
               </ImageContainer>
@@ -88,10 +78,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           ))}
         </ReactSwiperStyled>
       </Main>
-      <PaginationContainer
-        $hide={hideButtons}
-        $horizontal={screenOrientation === 'landscape-primary'}
-      >
+      <PaginationContainer $hide={hideArrows}>
         {medias.map((_, index) => (
           <PaginationButton
             key={index}
@@ -204,10 +191,7 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
   }
 `;
 
-const PaginationContainer = styled.div<{
-  $hide: boolean;
-  $horizontal: boolean;
-}>`
+const PaginationContainer = styled.div<{ $hide: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,7 +205,7 @@ const PaginationContainer = styled.div<{
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
 
   @media (max-width: 768px) {
-    bottom: ${({ $horizontal }) => !$horizontal && '120px'};
+    bottom: 120px;
   }
 `;
 

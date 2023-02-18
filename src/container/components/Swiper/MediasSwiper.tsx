@@ -23,12 +23,15 @@ interface MediasSwiperProps {
 
 export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const { className, isOpen, setIsOpen, medias, currentImage = 0 } = props;
+  const [swiper, setSwiper] = useState<SwiperCore>();
   const [hideArrows, setHideArrows] = useState(false);
+  const [currentMedia, setCurrentMedia] = useState(currentImage);
 
   SwiperCore.use([Navigation]);
 
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
+  const swiperRef = React.useRef(null);
 
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
@@ -40,13 +43,24 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           ref={navigationPrevRef}
           className='prev'
           $hide={hideArrows}
+          onClick={() =>
+            setCurrentMedia(currentMedia === 0 ? 0 : currentMedia - 1)
+          }
         />
         <ArrowRightIconStyled
           ref={navigationNextRef}
           className='next'
           $hide={hideArrows}
+          onClick={() =>
+            setCurrentMedia(
+              currentMedia === medias.length - 1
+                ? currentMedia
+                : currentMedia + 1
+            )
+          }
         />
         <ReactSwiperStyled
+          onSwiper={(swiper) => setSwiper(swiper)}
           navigation={{
             prevEl: 'prev',
             nextEl: 'next',
@@ -72,6 +86,18 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           ))}
         </ReactSwiperStyled>
       </Main>
+      <PaginationContainer $hide={hideArrows}>
+        {medias.map((_, index) => (
+          <PaginationButton
+            key={index}
+            $active={index === currentMedia}
+            onClick={() => {
+              swiper?.slideTo(index);
+              setCurrentMedia(index);
+            }}
+          />
+        ))}
+      </PaginationContainer>
     </Modal>
   );
 }
@@ -171,4 +197,30 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
     width: 30px;
     padding: 5px;
   }
+`;
+
+const PaginationContainer = styled.div<{ $hide: boolean }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 60px;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease-in-out;
+  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+`;
+
+const PaginationButton = styled.button<{ $active: boolean }>`
+  background-color: ${({ $active }) =>
+    $active ? COLORS.BLACK : COLORS.LIGHT_GREY};
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: solid 1px ${COLORS.DARK_GREY};
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 `;

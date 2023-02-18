@@ -1,10 +1,11 @@
 import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Layout } from '../../components';
+import { H2, Layout } from '../../components';
 import { dataBooks } from '../../datas/books';
 import { dataWorks } from '../../datas/works';
 import { ROUTES } from '../../routing';
+import { COLORS } from '../../themes';
 import { Project, ProjectType } from '../../types';
 import { CardProject, Header } from '../components';
 
@@ -28,10 +29,10 @@ export function HomePage(): JSX.Element {
   }
 
   return (
-    // eslint-disable-next-line react/jsx-no-undef
     <Layout>
       <Header />
       <Main>
+        <H3Styled>{'Les derniers projets'}</H3Styled>
         {justThreeProjects(projects).map((project) => (
           <CardProject
             key={project.id}
@@ -60,5 +61,13 @@ const Main = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 10px;
+  }
+`;
+
+const H3Styled = styled(H2)`
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
   }
 `;

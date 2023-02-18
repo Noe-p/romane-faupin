@@ -1,9 +1,15 @@
 const { i18n } = require('./next-i18next.config');
+const runtimeCaching = require('next-pwa/cache');
 
-module.exports = {
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+});
+
+module.exports = withPWA({
   i18n,
-  reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-};
+  // distDir: 'build',
+  staticPageGenerationTimeout: 20000,
+});

@@ -2,5 +2,8 @@ const { i18n } = require('./next-i18next.config');
 
 module.exports = {
   i18n,
-  // distDir: 'build',
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };

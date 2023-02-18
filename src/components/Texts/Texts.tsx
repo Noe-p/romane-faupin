@@ -89,18 +89,21 @@ export function Link(props: AnchorProps): JSX.Element {
 }
 
 const H1Styled = styled.h1`
+  line-height: 1;
   margin: 0;
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
 `;
 
 const H2Styled = styled.h2`
+  line-height: 1;
   margin: 0;
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
 `;
 
 const H3Styled = styled.h3`
+  line-height: 1;
   margin: 0;
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
@@ -110,6 +113,8 @@ const P1Styled = styled.p`
   margin: 0;
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
+  font-family: 'Hanken Grotesk';
+  font-size: 16px;
 `;
 
 const P2Styled = styled(P1)`

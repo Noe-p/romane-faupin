@@ -24,7 +24,7 @@ export function BookPage(props: BookPageProps): JSX.Element {
   }, []);
 
   return (
-    <LaoutStyled className={className}>
+    <Layout className={className}>
       <Main>
         <Title>{book?.name}</Title>
         <Description>{book?.description}</Description>
@@ -42,13 +42,9 @@ export function BookPage(props: BookPageProps): JSX.Element {
           ))}
         </ImagesContainer>
       </Main>
-    </LaoutStyled>
+    </Layout>
   );
 }
-
-const LaoutStyled = styled(Layout)`
-  background-color: ${COLORS.PRIMARY};
-`;
 
 const Main = styled.div`
   margin-top: 100px;
@@ -62,14 +58,18 @@ const Main = styled.div`
   background-color: white;
 `;
 
-const Title = styled(H1)``;
+const Title = styled(H1)`
+  text-align: center;
+`;
 
 const Description = styled(P1)`
-  color: ${COLORS.BLACK};
+  color: ${COLORS.DARK_GREY};
+  text-align: center;
+  margin-top: 15px;
 `;
 
 const ImagesContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,14 +90,19 @@ const ImageStyled = styled(Image)`
 const DescriptionImageContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: 5px;
   max-width: 40%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const DescriptionImage = styled(P2)``;
 
 const ArrowUpIconSyled = styled(ArrowUpIcon)`
-  width: 30px;
+  width: 5%;
   color: ${COLORS.BLACK};
   margin-right: 10px;
 `;

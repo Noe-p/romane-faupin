@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { H1, H2, Image } from '../../../components';
+import { H1, Image, P1 } from '../../../components';
 
 interface HeaderProps {
   className?: string;
@@ -15,7 +15,7 @@ export function Header(props: HeaderProps): JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       setIsAnimated(true);
-    }, 100);
+    }, 500);
   }, []);
 
   return (
@@ -71,15 +71,27 @@ const Title = styled(H1)<{ $isAnimated: boolean }>`
   text-transform: uppercase;
   transform: ${({ $isAnimated }) =>
     $isAnimated ? 'translateY(0)' : 'translateY(-150px)'};
-  transition: transform 1s ease-in-out;
+  opacity: ${({ $isAnimated }) => ($isAnimated ? 1 : 0)};
+  transition: all 1s ease-in-out;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
-const SubTitle = styled(H2)<{ $isAnimated: boolean }>`
+const SubTitle = styled(P1)<{ $isAnimated: boolean }>`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   text-align: center;
   transform: ${({ $isAnimated }) =>
     $isAnimated ? 'translateY(0)' : 'translateY(-100px)'};
-  transition: transform 1s ease-in-out;
+  opacity: ${({ $isAnimated }) => ($isAnimated ? 1 : 0)};
+  transition: all 1s ease-in-out;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;

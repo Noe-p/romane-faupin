@@ -120,15 +120,6 @@ export function NavBar(props: NavBarProps): JSX.Element {
               >
                 {t('about.name')}
               </MenuLink>
-              <MenuLink
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.contact
-                }
-                onClick={() => router.push(ROUTES.contact)}
-              >
-                {t('contact')}
-              </MenuLink>
             </Menu>
           </Right>
         )}
@@ -144,7 +135,7 @@ const Main = styled.div`
   position: fixed;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 1;
+  z-index: 100;
 `;
 
 const Content = styled.div`
@@ -232,6 +223,8 @@ const Menu = styled.div<{ $isOpen: boolean }>`
 const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-transform: uppercase;
   color: ${(props) => (props.$selected ? COLORS.BLACK : COLORS.GREY)};
-  margin-bottom: 20px;
+  margin: 20px;
+  transform: translateY(-50px);
   cursor: pointer;
+  font-size: 3.5rem;
 `;

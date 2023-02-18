@@ -65,6 +65,7 @@ const ProjectContainer = styled.div`
   cursor: pointer;
   overflow: hidden;
   margin-bottom: 50px;
+  z-index: 1;
 
   img {
     transform: scale(1);
@@ -102,6 +103,8 @@ const ProjectContainer = styled.div`
   }
 
   @media (max-width: 768px) {
+    width: 92%;
+
     ::before {
       content: '';
       position: absolute;
@@ -124,10 +127,12 @@ const ProjectContainer = styled.div`
 
 const ProjectTitle = styled(H1)`
   font-size: 3rem;
+  line-height: 1;
 `;
 
 const ProjectDescription = styled(P1)`
   font-size: 1.5rem;
+  line-height: 1;
 `;
 
 const SeeMoreContainer = styled.div<{ $hover: boolean }>`

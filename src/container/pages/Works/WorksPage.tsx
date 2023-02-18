@@ -35,5 +35,4 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
 `;

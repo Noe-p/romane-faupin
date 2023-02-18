@@ -3,7 +3,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/solid';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
@@ -26,11 +26,24 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [hideArrows, setHideArrows] = useState(false);
   const [currentMedia, setCurrentMedia] = useState(currentImage);
+  const [screenOrientation, setScreenOrientation] = useState<
+    'portrait-primary' | 'landscape-primary'
+  >('portrait-primary');
 
   SwiperCore.use([Navigation]);
 
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
+
+  useEffect(() => {
+    window.screen.orientation.onchange = () => {
+      setScreenOrientation(
+        window.screen.orientation.type === 'portrait-primary'
+          ? 'portrait-primary'
+          : 'landscape-primary'
+      );
+    };
+  }, []);
 
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
@@ -78,7 +91,10 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           ))}
         </ReactSwiperStyled>
       </Main>
-      <PaginationContainer $hide={hideArrows}>
+      <PaginationContainer
+        $hide={hideArrows}
+        $horizontal={screenOrientation === 'landscape-primary'}
+      >
         {medias.map((_, index) => (
           <PaginationButton
             key={index}
@@ -191,7 +207,10 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
   }
 `;
 
-const PaginationContainer = styled.div<{ $hide: boolean }>`
+const PaginationContainer = styled.div<{
+  $hide: boolean;
+  $horizontal: boolean;
+}>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,7 +224,7 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
 
   @media (max-width: 768px) {
-    bottom: 120px;
+    bottom: ${({ $horizontal }) => !$horizontal && '120px'};
   }
 `;
 

@@ -24,7 +24,7 @@ interface MediasSwiperProps {
 export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   const { className, isOpen, setIsOpen, medias, currentImage = 0 } = props;
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const [hideArrows, setHideArrows] = useState(false);
+  const [hideButtons, setHideButtons] = useState(false);
   const [currentMedia, setCurrentMedia] = useState(currentImage);
   const [screenOrientation, setScreenOrientation] = useState<
     'portrait-primary' | 'landscape-primary'
@@ -48,18 +48,18 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
       <Main>
-        <CloseIconContainer onClick={setIsOpen} $hide={hideArrows}>
+        <CloseIconContainer onClick={setIsOpen} $hide={hideButtons}>
           <CloseIcon />
         </CloseIconContainer>
         <ArrowLeftIconStyled
           ref={navigationPrevRef}
           className='prev'
-          $hide={hideArrows}
+          $hide={hideButtons}
         />
         <ArrowRightIconStyled
           ref={navigationNextRef}
           className='next'
-          $hide={hideArrows}
+          $hide={hideButtons}
         />
         <ReactSwiperStyled
           onSwiper={(swiper) => setSwiper(swiper)}
@@ -83,7 +83,10 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
           initialSlide={currentImage}
         >
           {medias.map((media) => (
-            <SwiperSlide key={media} onClick={() => setHideArrows(!hideArrows)}>
+            <SwiperSlide
+              key={media}
+              onClick={() => setHideButtons(!hideButtons)}
+            >
               <ImageContainer>
                 <ImageStyled src={media} alt={media} />
               </ImageContainer>
@@ -92,7 +95,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
         </ReactSwiperStyled>
       </Main>
       <PaginationContainer
-        $hide={hideArrows}
+        $hide={hideButtons}
         $horizontal={screenOrientation === 'landscape-primary'}
       >
         {medias.map((_, index) => (

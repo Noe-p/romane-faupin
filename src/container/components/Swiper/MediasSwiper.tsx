@@ -1,5 +1,5 @@
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
@@ -9,7 +9,6 @@ import { Image, Modal } from '../../../components';
 import { COLORS } from '../../../themes';
 
 interface MediasSwiperProps {
-  children?: ReactNode;
   className?: string;
   isOpen: boolean;
   setIsOpen: () => void;
@@ -18,14 +17,7 @@ interface MediasSwiperProps {
 }
 
 export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
-  const {
-    children,
-    className,
-    isOpen,
-    setIsOpen,
-    medias,
-    currentImage = 0,
-  } = props;
+  const { className, isOpen, setIsOpen, medias, currentImage = 0 } = props;
 
   SwiperCore.use([Navigation]);
 
@@ -34,7 +26,7 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
   }, [medias]);
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={setIsOpen}>
+    <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
       <Main>
         <CloseIconContainer onClick={setIsOpen}>
           <CloseIcon />

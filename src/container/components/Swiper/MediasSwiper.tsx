@@ -1,10 +1,15 @@
-import { XMarkIcon } from '@heroicons/react/24/solid';
-import { useEffect } from 'react';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/solid';
+import React from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
+import { NavigationOptions } from 'swiper/types/components/navigation';
 import { Image, Modal } from '../../../components';
 import { COLORS } from '../../../themes';
 
@@ -21,9 +26,8 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
 
   SwiperCore.use([Navigation]);
 
-  useEffect(() => {
-    console.log('MediasSwiper useEffect', medias);
-  }, [medias]);
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
 
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>
@@ -31,8 +35,21 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
         <CloseIconContainer onClick={setIsOpen}>
           <CloseIcon />
         </CloseIconContainer>
+        <ArrowLeftIconStyled ref={navigationPrevRef} className='prev' />
+        <ArrowRightIconStyled ref={navigationNextRef} className='next' />
         <ReactSwiperStyled
-          navigation
+          navigation={{
+            prevEl: 'prev',
+            nextEl: 'next',
+          }}
+          onBeforeInit={(swiper) => {
+            if (swiper && swiper.params && swiper.params.navigation) {
+              (swiper.params.navigation as NavigationOptions).prevEl =
+                navigationPrevRef.current;
+              (swiper.params.navigation as NavigationOptions).nextEl =
+                navigationNextRef.current;
+            }
+          }}
           slidesPerView={1}
           spaceBetween={50}
           initialSlide={currentImage}
@@ -80,8 +97,8 @@ const ImageStyled = styled(Image)`
 
 const CloseIconContainer = styled.div`
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 70px;
+  right: 70px;
   cursor: pointer;
   z-index: 100;
   border-radius: 50%;
@@ -97,4 +114,24 @@ const CloseIcon = styled(XMarkIcon)`
   color: black;
   width: 40px;
   height: 40px;
+`;
+
+const ArrowLeftIconStyled = styled(ChevronLeftIcon)`
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  cursor: pointer;
+  z-index: 100;
+  width: 40px;
+  transform: translateY(-50%);
+`;
+
+const ArrowRightIconStyled = styled(ChevronRightIcon)`
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  cursor: pointer;
+  z-index: 100;
+  width: 40px;
+  transform: translateY(-50%);
 `;

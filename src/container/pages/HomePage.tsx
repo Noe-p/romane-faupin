@@ -5,7 +5,6 @@ import { H2, Layout } from '../../components';
 import { dataBooks } from '../../datas/books';
 import { dataWorks } from '../../datas/works';
 import { ROUTES } from '../../routing';
-import { COLORS } from '../../themes';
 import { Project, ProjectType } from '../../types';
 import { CardProject, Header } from '../components';
 

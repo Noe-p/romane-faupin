@@ -31,7 +31,6 @@ export function MediasSwiper(props: MediasSwiperProps): JSX.Element {
 
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
-  const swiperRef = React.useRef(null);
 
   return (
     <Modal isOpen={isOpen} onRequestClose={setIsOpen} className={className}>

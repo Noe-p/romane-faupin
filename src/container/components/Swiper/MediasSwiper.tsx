@@ -206,7 +206,6 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   width: 50%;
-  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     bottom: 120px;
@@ -227,6 +226,6 @@ const PaginationButton = styled.button<{ $active: boolean }>`
 
   @media (max-width: 768px) {
     width: 13px;
-    height: 16px;
+    height: 13px;
   }
 `;

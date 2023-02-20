@@ -140,13 +140,15 @@ const CloseIconContainer = styled.div<{ $hide: boolean }>`
 
   @media (max-width: 768px) {
     top: 100px;
+    width: 35px;
+    height: 35px;
   }
 `;
 
 const CloseIcon = styled(XMarkIcon)`
   color: black;
-  width: 40px;
-  height: 40px;
+  width: 80%;
+  height: 80%;
 `;
 
 const ArrowLeftIconStyled = styled(ChevronLeftIcon)<{ $hide: boolean }>`
@@ -194,7 +196,6 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
 const PaginationContainer = styled.div<{ $hide: boolean }>`
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 50px;
   position: absolute;
   bottom: 60px;
@@ -203,20 +204,28 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   transform: translateX(-50%);
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  width: 50%;
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     bottom: 120px;
+    width: 70%;
   }
 `;
 
 const PaginationButton = styled.button<{ $active: boolean }>`
   background-color: ${({ $active }) =>
     $active ? COLORS.BLACK : COLORS.LIGHT_GREY};
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: solid 1px ${COLORS.DARK_GREY};
-  margin: 0 5px;
+  margin: 2px 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;

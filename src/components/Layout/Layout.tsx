@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Footer } from '..';
-import { COLORS } from '../../themes';
 import { NavBar } from '../Navbar';
 
 interface LayoutProps {
@@ -30,6 +29,5 @@ const Page = styled.div`
   align-items: center;
   justify-content: center;
   z-index: -5;
-  background-color: ${COLORS.PRIMARY};
   min-height: 70vh;
 `;

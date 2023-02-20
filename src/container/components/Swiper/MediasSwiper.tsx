@@ -224,9 +224,4 @@ const PaginationButton = styled.button<{ $active: boolean }>`
   margin: 2px 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-
-  @media (max-width: 768px) {
-    width: 17px;
-    height: 17px;
-  }
 `;

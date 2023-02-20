@@ -142,6 +142,7 @@ const CloseIconContainer = styled.div<{ $hide: boolean }>`
     top: 100px;
     width: 35px;
     height: 35px;
+    right: 50px;
   }
 `;
 
@@ -225,7 +226,7 @@ const PaginationButton = styled.button<{ $active: boolean }>`
   transition: background-color 0.3s ease-in-out;
 
   @media (max-width: 768px) {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
   }
 `;

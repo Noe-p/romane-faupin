@@ -209,7 +209,6 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
 
   @media (max-width: 768px) {
     bottom: 120px;
-    width: 70%;
   }
 `;
 

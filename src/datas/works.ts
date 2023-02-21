@@ -3,7 +3,7 @@ import { Project, ProjectType } from '../types';
 export const dataWorks: Project[] = [
   {
     id: 'epaves-de-la-rance',
-    name: 'Épaves de la rances',
+    name: 'Épaves de la Rances',
     type: ProjectType.WORK,
     date: new Date('2022-02-01'),
     backgroundImage: {

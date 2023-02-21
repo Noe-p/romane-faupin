@@ -39,7 +39,6 @@ export function HomePage(): JSX.Element {
     <Layout>
       <Header />
       <Main>
-        <H3Styled>{'Les derniers projets'}</H3Styled>
         {justThreeProjects(projects).map((project) => (
           <CardProject
             key={project.id}

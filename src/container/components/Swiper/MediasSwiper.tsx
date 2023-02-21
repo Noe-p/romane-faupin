@@ -101,7 +101,7 @@ const Main = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${COLORS.LIGHT_GREY};
+  background-color: ${COLORS.WHITE};
   z-index: 100;
 `;
 

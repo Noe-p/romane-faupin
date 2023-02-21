@@ -88,6 +88,8 @@ const Description = styled(P1)`
   color: ${COLORS.DARK_GREY};
   text-align: center;
   margin-top: 15px;
+  width: 70%;
+  font-size: 1.2rem;
 `;
 
 const ImagesContainer = styled.div`

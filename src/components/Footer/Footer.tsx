@@ -34,7 +34,7 @@ export function Footer(props: FooterProps): JSX.Element {
           />
         </a>
         <a
-          href='https://www.instagram.com/romane_fpn/?igshid=YmMyMTA2M2Y%3D'
+          href='https://instagram.com/romanefaupin?igshid=YmMyMTA2M2Y='
           target='_blank'
           rel='noreferrer'
         >

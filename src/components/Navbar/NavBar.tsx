@@ -35,11 +35,11 @@ export function NavBar(props: NavBarProps): JSX.Element {
       <Content>
         <Left>
           <LogoContainer onClick={() => router.push(ROUTES.home)}>
-            <TextNavigation
+            <TextNavigationTitle
               $selected={`/${router.pathname.split('/')[1]}` === ROUTES.home}
             >
               {'Romane FAUPIN'}
-            </TextNavigation>
+            </TextNavigationTitle>
           </LogoContainer>
         </Left>
         {!isMobile ? (
@@ -137,7 +137,7 @@ const Main = styled.div<{ $isClose?: boolean }>`
 `;
 
 const Content = styled.div`
-  width: 70%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -203,6 +203,9 @@ const TextNavigation = styled(P1)<{ $selected?: boolean }>`
   }
 `;
 
+const TextNavigationTitle = styled(TextNavigation)`
+  font-size: 20px;
+`;
 const Menu = styled.div<{ $isOpen: boolean }>`
   height: ${(props) => (props.$isOpen ? 'auto' : '0vh')};
   min-height: ${(props) => (props.$isOpen ? '92vh' : '0vh')};

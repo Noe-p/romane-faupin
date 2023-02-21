@@ -1,13 +1,13 @@
-import { useTranslation } from 'next-i18next';
-import React from 'react';
+import Lottie from 'lottie-react';
 import styled from 'styled-components';
+import LoaderAnimation from '../../../public/loader.json';
 
 export function FullPageLoader(): JSX.Element {
-  const { t } = useTranslation();
-
   return (
     <Main>
-      <p>{t('common.loading')}</p>
+      <Loader>
+        <Lottie animationData={LoaderAnimation} />
+      </Loader>
     </Main>
   );
 }
@@ -20,4 +20,14 @@ const Main = styled.div`
   position: absolute;
   height: 100vh;
   width: 100vw;
+`;
+
+const Loader = styled.div`
+  width: 200px;
+  height: 200px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;

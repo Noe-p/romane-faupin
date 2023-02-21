@@ -1,4 +1,5 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { Html, Main, NextScript } from 'next/document';
+import Head from 'next/head';
 import { ReactElement } from 'react';
 
 class MyDocument extends Document {

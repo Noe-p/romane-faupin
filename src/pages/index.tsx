@@ -1,5 +1,4 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
 import { HomePage } from '../container/pages';
 import { PageBaseProps } from '../types';
 

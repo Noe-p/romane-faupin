@@ -245,8 +245,10 @@ const PaginationButton = styled.button<{ $active: boolean }>`
   border-radius: 2px;
 
   @media (max-width: 768px) {
-    width: 30px;
-    height: 5px;
-    border-radius: 0;
+    width: 50px;
+    height: 10px;
+    border: 0;
+    background-color: ${({ $active }) =>
+      $active ? COLORS.BLACK : COLORS.DARK_GREY};
   }
 `;

@@ -206,9 +206,11 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   transition: opacity 0.3s ease-in-out;
   opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   width: 50%;
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     bottom: 120px;
+    width: 80%;
   }
 `;
 
@@ -219,7 +221,7 @@ const PaginationButton = styled.button<{ $active: boolean }>`
   height: 20px;
   border-radius: 50%;
   border: solid 1px ${COLORS.DARK_GREY};
-  margin: 2px 5px;
+  margin: 0 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 

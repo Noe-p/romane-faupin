@@ -89,6 +89,10 @@ const Description = styled(P1)`
   margin-top: 15px;
   width: 70%;
   font-size: 1.2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const ImagesContainer = styled.div`

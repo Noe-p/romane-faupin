@@ -136,13 +136,18 @@ const CloseIconContainer = styled.div<{ $hide: boolean }>`
   justify-content: center;
   align-items: center;
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  opacity: ${({ $hide }) => ($hide ? 0 : 0.5)};
+
+  :hover {
+    opacity: 1;
+  }
 
   @media (max-width: 768px) {
     top: 100px;
     width: 35px;
     height: 35px;
     right: 50px;
+    opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   }
 `;
 
@@ -164,12 +169,17 @@ const ArrowLeftIconStyled = styled(ChevronLeftIcon)<{ $hide: boolean }>`
   padding: 10px;
   border-radius: 50%;
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  opacity: ${({ $hide }) => ($hide ? 0 : 0.5)};
+
+  :hover {
+    opacity: 1;
+  }
 
   @media (max-width: 768px) {
     left: 30px;
     width: 30px;
     padding: 5px;
+    opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   }
 `;
 
@@ -185,12 +195,17 @@ const ArrowRightIconStyled = styled(ChevronRightIcon)<{ $hide: boolean }>`
   padding: 10px;
   border-radius: 50%;
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  opacity: ${({ $hide }) => ($hide ? 0 : 0.5)};
+
+  :hover {
+    opacity: 1;
+  }
 
   @media (max-width: 768px) {
     right: 30px;
     width: 30px;
     padding: 5px;
+    opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   }
 `;
 
@@ -204,29 +219,34 @@ const PaginationContainer = styled.div<{ $hide: boolean }>`
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ $hide }) => ($hide ? 0 : 1)};
+  opacity: ${({ $hide }) => ($hide ? 0 : 0.3)};
   width: 50%;
   flex-wrap: wrap;
 
+  &:hover {
+    opacity: 1;
+  }
+
   @media (max-width: 768px) {
-    bottom: 90px;
+    bottom: 110px;
     width: 80%;
+    opacity: ${({ $hide }) => ($hide ? 0 : 1)};
   }
 `;
 
 const PaginationButton = styled.button<{ $active: boolean }>`
-  background-color: ${({ $active }) =>
-    $active ? COLORS.BLACK : COLORS.LIGHT_GREY};
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: solid 1px ${COLORS.DARK_GREY};
+  background-color: ${({ $active }) => ($active ? COLORS.BLACK : COLORS.WHITE)};
+  width: 40px;
+  height: 6px;
+  border: solid 1px ${({ $active }) => ($active ? COLORS.WHITE : COLORS.BLACK)};
   margin: 2px 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
 
   @media (max-width: 768px) {
-    width: 13px !important;
-    height: 13px !important;
+    width: 30px;
+    height: 5px;
+    border-radius: 0;
   }
 `;

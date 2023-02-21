@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
 import styled from 'styled-components';
-import LoaderAnimation from '../../../public/loader.json';
+import LoaderAnimation from '../../../public//animations/loader.json';
 
 export function FullPageLoader(): JSX.Element {
   return (

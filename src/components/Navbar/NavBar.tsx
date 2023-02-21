@@ -36,10 +36,7 @@ export function NavBar(props: NavBarProps): JSX.Element {
         <Left>
           <LogoContainer onClick={() => router.push(ROUTES.home)}>
             <TextNavigation
-              $selected={
-                `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                ROUTES.home
-              }
+              $selected={`/${router.pathname.split('/')[1]}` === ROUTES.home}
             >
               {'Romane FAUPIN'}
             </TextNavigation>
@@ -49,20 +46,14 @@ export function NavBar(props: NavBarProps): JSX.Element {
           <Right>
             <RightLink onClick={() => router.push(ROUTES.works)}>
               <TextNavigation
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.works
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.works}
               >
                 {t('works')}
               </TextNavigation>
             </RightLink>
             <RightLink onClick={() => router.push(ROUTES.books)}>
               <TextNavigation
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.books
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.books}
               >
                 {t('books')}
               </TextNavigation>
@@ -70,8 +61,7 @@ export function NavBar(props: NavBarProps): JSX.Element {
             <RightLink onClick={() => router.push(ROUTES.microsEditions)}>
               <TextNavigation
                 $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.microsEditions
+                  `/${router.pathname.split('/')[1]}` === ROUTES.microsEditions
                 }
               >
                 {t('Micros éditions')}
@@ -79,10 +69,7 @@ export function NavBar(props: NavBarProps): JSX.Element {
             </RightLink>
             <RightLink onClick={() => router.push(ROUTES.about)}>
               <TextNavigation
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.about
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.about}
               >
                 {t('about.name')}
               </TextNavigation>
@@ -96,46 +83,33 @@ export function NavBar(props: NavBarProps): JSX.Element {
             />
             <Menu $isOpen={isMenuOpen}>
               <MenuLink
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.home
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.home}
                 onClick={() => router.push(ROUTES.home)}
               >
                 {t('home.name')}
               </MenuLink>
               <MenuLink
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.works
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.works}
                 onClick={() => router.push(ROUTES.works)}
               >
                 {t('works')}
               </MenuLink>
               <MenuLink
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.books
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.books}
                 onClick={() => router.push(ROUTES.books)}
               >
                 {t('books')}
               </MenuLink>
               <MenuLink
                 $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.microsEditions
+                  `/${router.pathname.split('/')[1]}` === ROUTES.microsEditions
                 }
                 onClick={() => router.push(ROUTES.microsEditions)}
               >
                 {t('Micros éditions')}
               </MenuLink>
               <MenuLink
-                $selected={
-                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
-                  ROUTES.about
-                }
+                $selected={`/${router.pathname.split('/')[1]}` === ROUTES.about}
                 onClick={() => router.push(ROUTES.about)}
               >
                 {t('about.name')}

@@ -245,6 +245,7 @@ const Menu = styled.div<{ $isOpen: boolean }>`
   transition: all 0.3s;
   overflow: hidden;
   z-index: 100;
+  padding-bottom: 70px;
 `;
 
 const MenuLink = styled(H1)<{ $selected?: boolean }>`

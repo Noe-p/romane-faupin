@@ -59,12 +59,13 @@ const Main = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    margin-top: 10px;
+    margin-top: 0px;
   }
 `;
 
 const H3Styled = styled(H2)`
   margin-bottom: 50px;
+  margin-top: 0;
 
   @media (max-width: 768px) {
     margin-bottom: 20px;

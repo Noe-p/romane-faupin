@@ -2,7 +2,7 @@
 import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { H2, Layout } from '../../components';
+import { Layout } from '../../components';
 import { dataBooks } from '../../datas/books';
 import { dataMicroEditions } from '../../datas/microEditions';
 import { dataWorks } from '../../datas/works';
@@ -61,14 +61,5 @@ const Main = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 0px;
-  }
-`;
-
-const H3Styled = styled(H2)`
-  margin-bottom: 50px;
-  margin-top: 0;
-
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
   }
 `;

@@ -240,7 +240,7 @@ const Menu = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 100;
@@ -249,9 +249,8 @@ const Menu = styled.div<{ $isOpen: boolean }>`
 const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-transform: uppercase;
   color: ${(props) => (props.$selected ? COLORS.BLACK : COLORS.GREY)};
-  margin: 20px;
-  transform: translateY(-50px);
   cursor: pointer;
   font-size: 2.8rem;
   text-align: center;
+  transform: translateY(-50px);
 `;

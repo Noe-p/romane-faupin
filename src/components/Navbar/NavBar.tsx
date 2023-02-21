@@ -251,7 +251,7 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-transform: uppercase;
   color: ${(props) => (props.$selected ? COLORS.BLACK : COLORS.GREY)};
   margin: 15px;
-  transform: translateY(-75px);
+  transform: translateY(-85px);
   cursor: pointer;
   font-size: 2.5rem;
   text-align: center;

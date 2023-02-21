@@ -257,6 +257,6 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-align: center;
 
   @media (max-height: 500px) {
-    transform: translateY(20px);
+    transform: translateY(-20px);
   }
 `;

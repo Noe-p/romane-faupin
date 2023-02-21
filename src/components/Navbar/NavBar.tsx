@@ -231,7 +231,7 @@ const TextNavigation = styled(P1)<{ $selected?: boolean }>`
 
 const Menu = styled.div<{ $isOpen: boolean }>`
   height: ${(props) => (props.$isOpen ? 'auto' : '0vh')};
-  min-height: 92vh;
+  min-height: ${(props) => (props.$isOpen ? '92vh' : '0vh')};
   width: 100vw;
   position: absolute;
   top: 100%;
@@ -251,7 +251,7 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-transform: uppercase;
   color: ${(props) => (props.$selected ? COLORS.BLACK : COLORS.GREY)};
   margin: 15px;
-  transform: translateY(-50px);
+  transform: translateY(-75px);
   cursor: pointer;
   font-size: 2.5rem;
   text-align: center;

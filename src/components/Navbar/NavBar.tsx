@@ -245,7 +245,6 @@ const Menu = styled.div<{ $isOpen: boolean }>`
   transition: all 0.3s;
   overflow: hidden;
   z-index: 100;
-  padding-bottom: 70px;
 `;
 
 const MenuLink = styled(H1)<{ $selected?: boolean }>`
@@ -256,4 +255,8 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   cursor: pointer;
   font-size: 2.5rem;
   text-align: center;
+
+  @media (max-height: 500px) {
+    transform: translateY(0);
+  }
 `;

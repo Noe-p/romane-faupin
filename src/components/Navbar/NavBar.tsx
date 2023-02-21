@@ -230,7 +230,8 @@ const TextNavigation = styled(P1)<{ $selected?: boolean }>`
 `;
 
 const Menu = styled.div<{ $isOpen: boolean }>`
-  height: ${(props) => (props.$isOpen ? '92vh' : '0vh')};
+  height: ${(props) => (props.$isOpen ? 'auto' : '0vh')};
+  min-height: 92vh;
   width: 100vw;
   position: absolute;
   top: 100%;
@@ -240,7 +241,7 @@ const Menu = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   transition: all 0.3s;
   overflow: hidden;
   z-index: 100;
@@ -249,8 +250,9 @@ const Menu = styled.div<{ $isOpen: boolean }>`
 const MenuLink = styled(H1)<{ $selected?: boolean }>`
   text-transform: uppercase;
   color: ${(props) => (props.$selected ? COLORS.BLACK : COLORS.GREY)};
-  cursor: pointer;
-  font-size: 2.8rem;
-  text-align: center;
+  margin: 15px;
   transform: translateY(-50px);
+  cursor: pointer;
+  font-size: 2.5rem;
+  text-align: center;
 `;

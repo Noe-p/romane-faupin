@@ -4,4 +4,5 @@ export const ROUTES = {
   works: '/works',
   books: '/books',
   contact: '/contact',
+  microsEditions: '/micro-editions',
 };

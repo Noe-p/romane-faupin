@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Layout } from '../../../components';
 import { dataWorks } from '../../../datas/works';
 import { ROUTES } from '../../../routing';
+import { sortProjectsByDate } from '../../../services/utils';
 import { Project } from '../../../types';
 import { CardProject } from '../../components';
 
@@ -11,7 +12,7 @@ export function WorksPage(): JSX.Element {
   const [works, setWorks] = useState<Project[]>([]);
 
   useEffect(() => {
-    setWorks(dataWorks);
+    setWorks(sortProjectsByDate(dataWorks));
   }, []);
 
   return (

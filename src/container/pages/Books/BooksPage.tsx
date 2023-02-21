@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Layout } from '../../../components';
 import { dataBooks } from '../../../datas/books';
 import { ROUTES } from '../../../routing';
+import { sortProjectsByDate } from '../../../services/utils';
 import { Project } from '../../../types';
 import { CardProject } from '../../components';
 
@@ -11,7 +12,7 @@ export function BooksPage(): JSX.Element {
   const [books, setBooks] = useState<Project[]>([]);
 
   useEffect(() => {
-    setBooks(dataBooks);
+    setBooks(sortProjectsByDate(dataBooks));
   }, []);
 
   return (

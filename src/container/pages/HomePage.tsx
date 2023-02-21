@@ -1,10 +1,13 @@
+/* eslint-disable indent */
 import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H2, Layout } from '../../components';
 import { dataBooks } from '../../datas/books';
+import { dataMicroEditions } from '../../datas/microEditions';
 import { dataWorks } from '../../datas/works';
 import { ROUTES } from '../../routing';
+import { sortProjectsByDate } from '../../services/utils';
 import { Project, ProjectType } from '../../types';
 import { CardProject, Header } from '../components';
 
@@ -12,19 +15,24 @@ export function HomePage(): JSX.Element {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    setProjects(sortProjectsByDate([...dataWorks, ...dataBooks]));
+    setProjects(
+      sortProjectsByDate([...dataWorks, ...dataBooks, ...dataMicroEditions])
+    );
   }, []);
-
-  function sortProjectsByDate(projects: Project[]): Project[] {
-    return projects.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB.getTime() - dateA.getTime();
-    });
-  }
 
   function justThreeProjects(projects: Project[]): Project[] {
     return projects.slice(0, 3);
+  }
+
+  function goToProjectPage(project: Project): string {
+    switch (project.type) {
+      case ProjectType.BOOK:
+        return ROUTES.books;
+      case ProjectType.MICRO_EDITION:
+        return ROUTES.microsEditions;
+      default:
+        return ROUTES.works;
+    }
   }
 
   return (
@@ -37,13 +45,7 @@ export function HomePage(): JSX.Element {
             key={project.id}
             project={project}
             onClick={() => {
-              return router.push(
-                `${
-                  project.type === ProjectType.BOOK
-                    ? ROUTES.books
-                    : ROUTES.works
-                }/${project.id}`
-              );
+              return router.push(`${goToProjectPage(project)}/${project.id}`);
             }}
           />
         ))}

@@ -1,3 +1,5 @@
+import { Project } from '../types';
+
 export function calculateAge(birthDate: Date): number {
   const today = new Date();
   let thisYear = 0;
@@ -33,4 +35,12 @@ export function convertHexaToRgba(
     );
   }
   return defaultColor;
+}
+
+export function sortProjectsByDate(projects: Project[]): Project[] {
+  return projects.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
 }

@@ -57,8 +57,6 @@ const ProjectContainer = styled.div`
   width: 80%;
   height: 500px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
   border: 1px solid ${COLORS.DARK_GREY};
   transition: all 0.3s ease-in-out;
@@ -66,10 +64,16 @@ const ProjectContainer = styled.div`
   overflow: hidden;
   margin-bottom: 50px;
   z-index: 1;
+  padding: 20px;
 
   img {
     transform: scale(1);
     transition: all 0.3s ease-in-out;
+  }
+
+  .desc {
+    width: 70%;
+    line-height: 1.2;
   }
 
   h1,
@@ -104,7 +108,20 @@ const ProjectContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 92%;
-    height: 300px;
+    height: auto;
+    padding: 0;
+    min-height: 300px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .desc {
+      font-size: 1.2rem;
+      padding-top: 0;
+      margin-bottom: 30px;
+      width: 90%;
+    }
 
     ::before {
       content: '';
@@ -149,10 +166,7 @@ const SeeMoreContainer = styled.div<{ $hover: boolean }>`
 
   p {
     transition: all 0.2s ease-in-out;
-  }
-
-  :hover p {
-    margin-right: 14px;
+    margin-right: ${({ $hover }) => ($hover ? '14px' : '0')};
   }
 `;
 

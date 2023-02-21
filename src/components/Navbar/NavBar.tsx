@@ -67,6 +67,16 @@ export function NavBar(props: NavBarProps): JSX.Element {
                 {t('books')}
               </TextNavigation>
             </RightLink>
+            <RightLink onClick={() => router.push(ROUTES.microsEditions)}>
+              <TextNavigation
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.microsEditions
+                }
+              >
+                {t('Micros éditions')}
+              </TextNavigation>
+            </RightLink>
             <RightLink onClick={() => router.push(ROUTES.about)}>
               <TextNavigation
                 $selected={
@@ -111,6 +121,15 @@ export function NavBar(props: NavBarProps): JSX.Element {
                 onClick={() => router.push(ROUTES.books)}
               >
                 {t('books')}
+              </MenuLink>
+              <MenuLink
+                $selected={
+                  `/${router.pathname.split('/')[1].split('/')[0]}` ===
+                  ROUTES.microsEditions
+                }
+                onClick={() => router.push(ROUTES.microsEditions)}
+              >
+                {t('Micros éditions')}
               </MenuLink>
               <MenuLink
                 $selected={
@@ -234,4 +253,5 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   transform: translateY(-50px);
   cursor: pointer;
   font-size: 3.5rem;
+  text-align: center;
 `;

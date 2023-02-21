@@ -1,3 +1,4 @@
 export * from './AboutPage';
-export * from './Works';
 export * from './HomePage';
+export * from './MicroEditions';
+export * from './Works';

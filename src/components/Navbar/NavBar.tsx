@@ -252,6 +252,6 @@ const MenuLink = styled(H1)<{ $selected?: boolean }>`
   margin: 20px;
   transform: translateY(-50px);
   cursor: pointer;
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   text-align: center;
 `;

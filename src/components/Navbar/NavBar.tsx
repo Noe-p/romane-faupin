@@ -204,7 +204,7 @@ const TextNavigation = styled(P1)<{ $selected?: boolean }>`
 `;
 
 const TextNavigationTitle = styled(TextNavigation)`
-  font-size: 20px;
+  font-size: 1.4rem;
 `;
 const Menu = styled.div<{ $isOpen: boolean }>`
   height: ${(props) => (props.$isOpen ? 'auto' : '0vh')};

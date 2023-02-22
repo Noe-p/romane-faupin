@@ -10,7 +10,7 @@ export interface Project {
   type: ProjectType;
   id: string;
   name: string;
-  description?: string;
+  description?: string[];
   medias: Media[];
   backgroundImage: Media;
   date: Date;

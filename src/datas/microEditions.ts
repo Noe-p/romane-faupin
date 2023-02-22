@@ -6,8 +6,10 @@ export const dataMicroEditions: Project[] = [
     name: 'Étoiles de Renaudie',
     type: ProjectType.MICRO_EDITION,
     date: new Date('2022-02-01'),
-    description:
-      "Des photos retrouvées, guidant la mémoire vers la nostalgie d'une époque révolue. Des livrets pour raconter les bribes d'une histoire réinventée.",
+    description: [
+      "Des photos retrouvées, guidant la mémoire vers la nostalgie d'une époque révolue.",
+      "Des livrets pour raconter les bribes d'une histoire réinventée.",
+    ],
     backgroundImage: {
       id: 'micro-editions-etoiles-de-renaudie-background',
       url: '/micro-editions/etoiles-de-renaudie/FAUPIN_HDPH321_012_IVRY.jpg',

@@ -36,9 +36,11 @@ export function CardProject(props: CardProjectProps): JSX.Element {
     >
       <div>
         <ProjectTitle white>{project.name}</ProjectTitle>
-        <ProjectDescription className='desc' white>
-          {project.description}
-        </ProjectDescription>
+        {project.description?.map((desc, index) => (
+          <ProjectDescription className='desc' white key={index}>
+            {desc}
+          </ProjectDescription>
+        ))}
       </div>
       <ProjectImageBackground
         src={project.backgroundImage.url}
@@ -55,7 +57,8 @@ export function CardProject(props: CardProjectProps): JSX.Element {
 const ProjectContainer = styled.div`
   position: relative;
   width: 80%;
-  height: 500px;
+  height: auto;
+  min-height: 500px;
   display: flex;
   border-radius: 10px;
   border: 1px solid ${COLORS.DARK_GREY};
@@ -65,15 +68,11 @@ const ProjectContainer = styled.div`
   margin-bottom: 50px;
   z-index: 1;
   padding: 20px;
+  padding-bottom: 60px !important;
 
   img {
     transform: scale(1);
     transition: all 0.3s ease-in-out;
-  }
-
-  .desc {
-    width: 70%;
-    line-height: 1.2;
   }
 
   h1,
@@ -116,13 +115,6 @@ const ProjectContainer = styled.div`
       font-size: 2rem;
     }
 
-    .desc {
-      font-size: 1.2rem;
-      padding-top: 0;
-      margin-bottom: 30px;
-      width: 90%;
-    }
-
     ::before {
       content: '';
       position: absolute;
@@ -151,6 +143,18 @@ const ProjectTitle = styled(H1)`
 const ProjectDescription = styled(P1)`
   font-size: 1.5rem;
   line-height: 1;
+  margin: 0 !important;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important;
+  width: 70%;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding-top: 0;
+    margin-bottom: 30px;
+    width: 90%;
+  }
 `;
 
 const SeeMoreContainer = styled.div<{ $hover: boolean }>`
@@ -165,8 +169,13 @@ const SeeMoreContainer = styled.div<{ $hover: boolean }>`
   transition: all 0.3s ease-in-out;
 
   p {
+    font-size: 1.3rem;
     transition: all 0.2s ease-in-out;
     margin-right: ${({ $hover }) => ($hover ? '14px' : '0')};
+
+    @media (max-width: 768px) {
+      margin-right: 5px;
+    }
   }
 `;
 

@@ -6,8 +6,9 @@ export const dataBooks: Project[] = [
     type: ProjectType.BOOK,
     date: new Date('2022-01-01'),
     name: 'Apiculture',
-    description:
+    description: [
       "Reportage dans l'exploitation apicole de Bruno Petit et Remy Vanbremeersch. «Un apiculteur près de chez vous ».",
+    ],
     backgroundImage: {
       id: 'apiculture-background',
       url: '/books/apiculture/apiculture_01.jpg',

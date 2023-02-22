@@ -31,7 +31,9 @@ export function BookPage(props: BookPageProps): JSX.Element {
     <Layout isNavClose={isNavClose} className={className}>
       <Main>
         <Title>{book?.name}</Title>
-        <Description>{book?.description}</Description>
+        {book?.description?.map((desc, index) => (
+          <Description key={index}>{desc}</Description>
+        ))}
         <ImagesContainer>
           {book?.medias.map((image, i) => (
             <ImageContainer
@@ -80,6 +82,7 @@ const Main = styled.div`
 
 const Title = styled(H1)`
   text-align: center;
+  margin-bottom: 20px;
 `;
 
 const Description = styled(P1)`
@@ -88,6 +91,9 @@ const Description = styled(P1)`
   margin-top: 15px;
   width: 70%;
   font-size: 1.2rem;
+  margin: 0 !important;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important;
 
   @media (max-width: 768px) {
     width: 100%;

@@ -5,6 +5,13 @@ export const dataWorks: Project[] = [
     id: 'epaves-de-la-rance',
     name: 'Épaves de la Rances',
     type: ProjectType.WORK,
+    description: [
+      "Dans cette société de surconsommation, les objets disparaissent presque aussi vite qu'ils vivent.",
+      "Qu'en reste-t-il ? Quel est le destin de tous ces biens matériels une fois qu'ils ne sont plus ?",
+      "Tout s'altère et devient épave, rien ne disparait jamais complètement.",
+      "« Epaves de la Rance» questionne l'obsolescence des objets. J'ai collecté des fragments de bois, de métal rouillés et de fibre de verre tous provenant d'épaves abandonnées sur les bords de la Rance en Bretagne. J'ai photographié carrelets et bateaux sur place et je les ai insolés à même les supports.",
+      "Et ainsi, réunis la matérialité du support et l'évanescence des images.",
+    ],
     date: new Date('2022-02-01'),
     backgroundImage: {
       id: 'epaves-de-la-rance-background',
@@ -43,8 +50,10 @@ export const dataWorks: Project[] = [
     name: 'Étoiles de Renaudie',
     type: ProjectType.WORK,
     date: new Date('2022-02-01'),
-    description:
-      "À Ivry-sur-Seine dans les années 70, personne n'avait jamais vu de construction pareille : Des bâtiments en étoiles, des terrasse angulaire, Des angles droits et l'impression d'ordre qu'ils génèrent. À ce jour, ces bâtiments restent uniques à mes yeux par leur esthétique. C'est pour cette raison que j'ai voulu par différentes techniques souligner le caractère unique et intemporel de ce lieu.",
+    description: [
+      "À Ivry-sur-Seine dans les années 70, personne n'avait jamais vu de construction pareille : Des bâtiments en étoiles, des terrasse angulaire, Des angles droits et l'impression d'ordre qu'ils génèrent.",
+      "À ce jour, ces bâtiments restent uniques à mes yeux par leur esthétique. C'est pour cette raison que j'ai voulu par différentes techniques souligner le caractère unique et intemporel de ce lieu.",
+    ],
     backgroundImage: {
       id: 'etoiles-de-renaudie-background',
       url: '/works/etoiles-de-renaudie/Projet_Ivry_0001.jpg',
@@ -104,8 +113,10 @@ export const dataWorks: Project[] = [
     id: 'resurgence',
     name: 'Résurgence',
     type: ProjectType.WORK,
-    description:
-      'Ces images délaissées et oubliées resurgissent. Elles représentent le « ça a été », Une réalité altérée par le temps qui passe. Modifiées par les stigmates organiques et par les effets de la solarisation elles portent en elles une nouvelle temporalité, une toute autre densité et le fantôme de leurs histoires.',
+    description: [
+      'Ces images délaissées et oubliées resurgissent.',
+      'Elles représentent le « ça a été », Une réalité altérée par le temps qui passe. Modifiées par les stigmates organiques et par les effets de la solarisation elles portent en elles une nouvelle temporalité, une toute autre densité et le fantôme de leurs histoires.',
+    ],
     date: new Date('2022-02-01'),
     backgroundImage: {
       id: 'resurgence-background',
@@ -143,8 +154,9 @@ export const dataWorks: Project[] = [
     name: 'Sur les traces de Chateaubriand',
     type: ProjectType.WORK,
     date: new Date('2022-02-01'),
-    description:
+    description: [
       "Quand les mots deviennent des images, Les lieux, des souvenirs.. Quand le récit nous entraîne vers certains lieux et paysages inchangés. Le passé et le présent s'entremèlent.",
+    ],
     backgroundImage: {
       id: 'chateaubriand-background',
       url: '/works/sur-les-traces-de-chateaubriand/CHATEAUBRIAND_01.jpg',

@@ -3,8 +3,6 @@ import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Layout } from '../../components';
-import { dataBooks } from '../../datas/books';
-import { dataMicroEditions } from '../../datas/microEditions';
 import { dataWorks } from '../../datas/works';
 import { ROUTES } from '../../routing';
 import { sortProjectsByDate } from '../../services/utils';
@@ -15,9 +13,7 @@ export function HomePage(): JSX.Element {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    setProjects(
-      sortProjectsByDate([...dataWorks, ...dataBooks, ...dataMicroEditions])
-    );
+    setProjects(sortProjectsByDate([...dataWorks]));
   }, []);
 
   function justThreeProjects(projects: Project[]): Project[] {

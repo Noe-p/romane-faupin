@@ -17,7 +17,6 @@ export const dataBooks: Project[] = [
       {
         id: 'apiculture-media1',
         url: '/books/apiculture/apiculture_01.jpg',
-        description: 'Description Apiculture 1',
       },
       {
         id: 'apiculture-media2',

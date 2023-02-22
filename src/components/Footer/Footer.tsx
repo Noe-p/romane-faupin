@@ -24,16 +24,6 @@ export function Footer(props: FooterProps): JSX.Element {
       </InfosContainer>
       <SocialMediasContainer>
         <a
-          rel='noreferrer'
-          href='https://www.facebook.com/romane.faupin'
-          target='_blank'
-        >
-          <SocialLogo
-            src='/social-icons/Black/Facebook_black.svg'
-            alt='facebook'
-          />
-        </a>
-        <a
           href='https://instagram.com/romanefaupin?igshid=YmMyMTA2M2Y='
           target='_blank'
           rel='noreferrer'

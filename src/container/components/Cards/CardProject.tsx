@@ -36,11 +36,19 @@ export function CardProject(props: CardProjectProps): JSX.Element {
     >
       <div>
         <ProjectTitle white>{project.name}</ProjectTitle>
-        {project.description?.map((desc, index) => (
-          <ProjectDescription className='desc' white key={index}>
-            {desc}
+        {project.description && isMobile ? (
+          <ProjectDescription className='desc' white>
+            {project.description?.join(' ').length > 90
+              ? project.description?.join(' ').slice(0, 90) + ' « ... »'
+              : project.description?.join(' ')}
           </ProjectDescription>
-        ))}
+        ) : (
+          project.description?.map((desc, index) => (
+            <ProjectDescription key={index} className='desc' white>
+              {desc}
+            </ProjectDescription>
+          ))
+        )}
       </div>
       <ProjectImageBackground
         src={project.backgroundImage.url}

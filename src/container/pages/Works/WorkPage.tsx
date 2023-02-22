@@ -79,6 +79,10 @@ const Main = styled.div`
   border-radius: 10px;
   margin-bottom: 100px;
   background-color: ${COLORS.WHITE};
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const Title = styled(H1)`
@@ -91,7 +95,6 @@ const Description = styled(P1)`
   text-align: center;
   margin-top: 15px;
   width: 70%;
-  font-size: 1.2rem;
   margin: 0 !important;
   padding-bottom: 5px !important;
   padding-top: 5px !important;

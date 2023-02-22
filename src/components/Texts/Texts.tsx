@@ -89,6 +89,7 @@ export function Link(props: AnchorProps): JSX.Element {
 }
 
 const H1Styled = styled.h1`
+  font-size: 3rem;
   font-family: 'Abel';
   line-height: 1;
   margin: 0;
@@ -116,12 +117,12 @@ const P1Styled = styled.p`
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
   font-family: 'Abel';
-  font-size: 16px;
+  font-size: 1.2rem;
 `;
 
 const P2Styled = styled(P1)`
   margin: 0;
-  font-size: 14px;
+  font-size: 1rem;
   color: ${({ $white }: { $white?: boolean }) =>
     $white ? 'white' : COLORS.BLACK};
 `;

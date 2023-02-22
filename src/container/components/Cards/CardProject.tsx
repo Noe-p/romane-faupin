@@ -136,12 +136,10 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectTitle = styled(H1)`
-  font-size: 3rem;
   line-height: 1;
 `;
 
 const ProjectDescription = styled(P1)`
-  font-size: 1.5rem;
   line-height: 1;
   margin: 0 !important;
   padding-bottom: 5px !important;
@@ -150,7 +148,6 @@ const ProjectDescription = styled(P1)`
   line-height: 1.2;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
     padding-top: 0;
     margin-bottom: 30px;
     width: 90%;

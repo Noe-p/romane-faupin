@@ -26,6 +26,10 @@ const Main = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-bottom: 100px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const P1Styled = styled(P1)`

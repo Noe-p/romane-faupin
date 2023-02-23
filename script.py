@@ -32,17 +32,18 @@ def read_file(file_name):
 def create_medias_object(title, medias, path):
     medias_object = []
     for media in medias:
-        medias_object.append({
-            "id": title.lower().replace(" ", "-")+"-"+media.lower().replace(" ", "-"),
-            "url": "/projects/"+path+"/"+title+"/"+media
-        })
+        if (media != "description.txt"):
+            medias_object.append({
+                "id": title.lower().replace(" ", "-")+"-"+media.lower().replace(" ", "-"),
+                "url": "/projects/"+path+"/"+title+"/"+media
+            })
     return medias_object
 
 
 def create_background_image(title, medias, path):
     url = ""
-    if (medias.count("background.jpg") > 0):
-        url = "/projects/"+path+"/"+title+"/background.jpg"
+    if (medias.count("background.webP") > 0):
+        url = "/projects/"+path+"/"+title+"/background.webP"
     elif (medias):
         url = "/projects/"+path+"/"+title+"/"+medias[0]
     return {

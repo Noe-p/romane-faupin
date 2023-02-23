@@ -2,7 +2,6 @@ import { ArrowUpIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H1, Image, Layout, P1, P2 } from '../../../components';
-import { dataBooks } from '../../../datas/books';
 import { COLORS } from '../../../themes';
 import { Project } from '../../../types';
 import { MediasSwiper } from '../../components';
@@ -19,8 +18,15 @@ export function BookPage(props: BookPageProps): JSX.Element {
   const [currentImage, setCurrentImage] = useState(0);
   const [isNavClose, setIsNavClose] = useState(false);
 
-  function fetchBook(id: string) {
-    setBook(dataBooks.find((book) => book.id === id));
+  async function fetchBook(id: string) {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const book: Project = json.find(
+          (project: Project) => project.id === id
+        );
+        setBook(book);
+      });
   }
 
   useEffect(() => {

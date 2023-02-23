@@ -2,7 +2,6 @@ import { ArrowUpIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H1, Image, Layout, P1, P2 } from '../../../components';
-import { dataWorks } from '../../../datas/works';
 import { COLORS } from '../../../themes';
 import { Project } from '../../../types';
 import { MediasSwiper } from '../../components';
@@ -19,8 +18,15 @@ export function WorkPage(props: WorkPageProps): JSX.Element {
   const [currentImage, setCurrentImage] = useState(0);
   const [isNavClose, setIsNavClose] = useState(false);
 
-  function fetchWork(id: string) {
-    setWork(dataWorks.find((work) => work.id === id));
+  async function fetchWork(id: string) {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const work: Project = json.find(
+          (project: Project) => project.id === id
+        );
+        setWork(work);
+      });
   }
 
   useEffect(() => {

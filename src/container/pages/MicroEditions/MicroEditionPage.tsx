@@ -2,7 +2,6 @@ import { ArrowUpIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H1, Image, Layout, P1, P2 } from '../../../components';
-import { dataMicroEditions } from '../../../datas/microEditions';
 import { COLORS } from '../../../themes';
 import { Project } from '../../../types';
 import { MediasSwiper } from '../../components';
@@ -19,10 +18,15 @@ export function MicroEditionPage(props: MicroEditionPageProps): JSX.Element {
   const [currentImage, setCurrentImage] = useState(0);
   const [isNavClose, setIsNavClose] = useState(false);
 
-  function fetchMicroEdition(id: string) {
-    setMicroEdition(
-      dataMicroEditions.find((microEdition) => microEdition.id === id)
-    );
+  async function fetchMicroEdition(id: string) {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const microEdition: Project = json.find(
+          (project: Project) => project.id === id
+        );
+        setMicroEdition(microEdition);
+      });
   }
 
   useEffect(() => {

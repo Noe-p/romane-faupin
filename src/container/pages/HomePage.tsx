@@ -3,17 +3,26 @@ import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Layout } from '../../components';
-import { dataWorks } from '../../datas/works';
 import { ROUTES } from '../../routing';
 import { sortProjectsByDate } from '../../services/utils';
 import { Project, ProjectType } from '../../types';
 import { CardProject, Header } from '../components';
-
 export function HomePage(): JSX.Element {
   const [projects, setProjects] = useState<Project[]>([]);
 
+  async function fetchWorks() {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const works: Project[] = json.filter(
+          (project: Project) => project.type === ProjectType.WORK
+        );
+        setProjects(sortProjectsByDate(works));
+      });
+  }
+
   useEffect(() => {
-    setProjects(sortProjectsByDate([...dataWorks]));
+    fetchWorks();
   }, []);
 
   function justThreeProjects(projects: Project[]): Project[] {

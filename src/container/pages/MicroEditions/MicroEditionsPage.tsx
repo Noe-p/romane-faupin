@@ -2,17 +2,27 @@ import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Layout } from '../../../components';
-import { dataMicroEditions } from '../../../datas/microEditions';
 import { ROUTES } from '../../../routing';
 import { sortProjectsByDate } from '../../../services/utils';
-import { Project } from '../../../types';
+import { Project, ProjectType } from '../../../types';
 import { CardProject } from '../../components';
 
 export function MicroEditionsPage(): JSX.Element {
   const [microsEdition, setMicrosEdition] = useState<Project[]>([]);
 
+  async function fetchMicroEditions() {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const microEditions: Project[] = json.filter(
+          (project: Project) => project.type === ProjectType.MICRO_EDITION
+        );
+        setMicrosEdition(sortProjectsByDate(microEditions));
+      });
+  }
+
   useEffect(() => {
-    setMicrosEdition(sortProjectsByDate(dataMicroEditions));
+    fetchMicroEditions();
   }, []);
 
   return (

@@ -2,17 +2,27 @@ import router from 'next/dist/client/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Layout } from '../../../components';
-import { dataWorks } from '../../../datas/works';
 import { ROUTES } from '../../../routing';
 import { sortProjectsByDate } from '../../../services/utils';
-import { Project } from '../../../types';
+import { Project, ProjectType } from '../../../types';
 import { CardProject } from '../../components';
 
 export function WorksPage(): JSX.Element {
   const [works, setWorks] = useState<Project[]>([]);
 
+  async function fetchWorks() {
+    await fetch('/datas.json')
+      .then((response) => response.json())
+      .then((json) => {
+        const works: Project[] = json.filter(
+          (project: Project) => project.type === ProjectType.WORK
+        );
+        setWorks(sortProjectsByDate(works));
+      });
+  }
+
   useEffect(() => {
-    setWorks(sortProjectsByDate(dataWorks));
+    fetchWorks();
   }, []);
 
   return (

@@ -11,7 +11,7 @@ export function HomePage(): JSX.Element {
   const [projects, setProjects] = useState<Project[]>([]);
 
   async function fetchWorks() {
-    await fetch('/datas.json')
+    await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
         const works: Project[] = json.filter(

@@ -19,7 +19,7 @@ export function MicroEditionPage(props: MicroEditionPageProps): JSX.Element {
   const [isNavClose, setIsNavClose] = useState(false);
 
   async function fetchMicroEdition(id: string) {
-    await fetch('/datas.json')
+    await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
         const microEdition: Project = json.find(

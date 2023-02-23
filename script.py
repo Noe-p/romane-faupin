@@ -3,7 +3,7 @@ from enum import Enum
 from os import walk
 import json
 
-FILE_DESTINATION = "./public/datas.json"
+FILE_DESTINATION = "./public/projects/projects.json"
 
 
 class ProjectType(Enum):
@@ -34,7 +34,7 @@ def create_medias_object(title, medias, path):
     for media in medias:
         medias_object.append({
             "id": title.lower().replace(" ", "-")+"-"+media.lower().replace(" ", "-"),
-            "url": "/"+path+"/"+title+"/"+media
+            "url": "/projects/"+path+"/"+title+"/"+media
         })
     return medias_object
 
@@ -42,9 +42,9 @@ def create_medias_object(title, medias, path):
 def create_background_image(title, medias, path):
     url = ""
     if (medias.count("background.jpg") > 0):
-        url = "/"+path+"/"+title+"/background.jpg"
+        url = "/projects/"+path+"/"+title+"/background.jpg"
     elif (medias):
-        url = "/"+path+"/"+title+"/"+medias[0]
+        url = "/projects/"+path+"/"+title+"/"+medias[0]
     return {
         "id": title.lower().replace(" ", "-")+"-background",
         "url": url
@@ -56,7 +56,7 @@ def create_json(title, medias, path):
         "id": title.lower().replace(" ", "-"),
         "name": title,
         "backgroundImage": create_background_image(title, medias, path),
-        "description": read_file("./public/"+path+"/"+title+"/description.txt"),
+        "description": read_file("./public/projects/"+path+"/"+title+"/description.txt"),
         "type": ProjectType[path.upper().replace("-", "_")].value,
         "date": "2021-01-01",
         "medias": create_medias_object(title, medias, path),
@@ -85,9 +85,9 @@ def merge_array(arr):
     return merged_list
 
 
-books = './public/books'
-works = './public/works'
-micro_editions = './public/micro-editions'
+books = './public/projects/books'
+works = './public/projects/works'
+micro_editions = './public/projects/micro-editions'
 
 datas = []
 datas.append(run_in_foders(books))

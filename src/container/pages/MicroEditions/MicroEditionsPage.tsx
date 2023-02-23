@@ -11,7 +11,7 @@ export function MicroEditionsPage(): JSX.Element {
   const [microsEdition, setMicrosEdition] = useState<Project[]>([]);
 
   async function fetchMicroEditions() {
-    await fetch('/datas.json')
+    await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
         const microEditions: Project[] = json.filter(

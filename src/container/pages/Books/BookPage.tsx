@@ -19,7 +19,7 @@ export function BookPage(props: BookPageProps): JSX.Element {
   const [isNavClose, setIsNavClose] = useState(false);
 
   async function fetchBook(id: string) {
-    await fetch('/datas.json')
+    await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
         const book: Project = json.find(

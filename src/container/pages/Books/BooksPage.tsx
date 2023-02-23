@@ -11,7 +11,7 @@ export function BooksPage(): JSX.Element {
   const [books, setBooks] = useState<Project[]>([]);
 
   async function fetchBooks() {
-    await fetch('/datas.json')
+    await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
         const books: Project[] = json.filter(

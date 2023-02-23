@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "python3 script.py && next",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
     "lint": "npx eslint src --ext js,jsx,ts,tsx --max-warnings 0",
     "lint:fix": "npx eslint src --ext js,jsx,ts,tsx --max-warnings 0 --fix",
     "postinstall": "husky install && rm -rf .git/hooks && ln -s ../.husky .git/hooks",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "projects": "python3 script.py"
   },
   "eslintConfig": {
     "extends": [

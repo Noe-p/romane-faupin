@@ -10,4 +10,6 @@ export function Image(props: ImageProps): JSX.Element {
   return <Main className={className} {...props} />;
 }
 
-const Main = styled.img``;
+const Main = styled.img`
+  image-orientation: none;
+`;

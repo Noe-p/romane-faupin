@@ -17,7 +17,7 @@ class MyDocument extends Document {
           <meta name='theme-color' content='white' />
           <meta
             name='description'
-            content="Née en 1999, Romane FAUPIN vit et travaille à Paris. Après un bac ES en candidat libre et des études technique de photographie, elle s'oriente vers une production plasticienne."
+            content="Née en 1999, Romane FAUPIN vit et travaille à Paris. Après des études technique de photographie, elle s'oriente vers une production plasticienne."
           />
         </Head>
         <body>

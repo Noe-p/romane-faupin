@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H1, Image, Layout, P1, P2 } from '../../../components';
 import { COLORS } from '../../../themes';
-import { Project } from '../../../types';
+import { Project, ProjectType } from '../../../types';
 import { MediasSwiper } from '../../components';
 
 interface MicroEditionPageProps {
@@ -22,7 +22,10 @@ export function MicroEditionPage(props: MicroEditionPageProps): JSX.Element {
     await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
-        const microEdition: Project = json.find(
+        const types: Project[] = json.filter(
+          (project: Project) => project.type === ProjectType.MICRO_EDITION
+        );
+        const microEdition: Project | undefined = types.find(
           (project: Project) => project.id === id
         );
         setMicroEdition(microEdition);

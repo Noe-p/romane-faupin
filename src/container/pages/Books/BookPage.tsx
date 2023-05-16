@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { H1, Image, Layout, P1, P2 } from '../../../components';
 import { COLORS } from '../../../themes';
-import { Project } from '../../../types';
+import { Project, ProjectType } from '../../../types';
 import { MediasSwiper } from '../../components';
 
 interface BookPageProps {
@@ -22,7 +22,10 @@ export function BookPage(props: BookPageProps): JSX.Element {
     await fetch('/projects/projects.json')
       .then((response) => response.json())
       .then((json) => {
-        const book: Project = json.find(
+        const types: Project[] = json.filter(
+          (project: Project) => project.type === ProjectType.BOOK
+        );
+        const book: Project | undefined = types.find(
           (project: Project) => project.id === id
         );
         setBook(book);

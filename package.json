@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "python3 script.py && next",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",

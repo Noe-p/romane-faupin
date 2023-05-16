@@ -37,7 +37,7 @@ def create_medias_object(title, medias, path):
                 "id": title.lower().replace(" ", "-")+"-"+media.lower().replace(" ", "-"),
                 "url": "/projects/"+path+"/"+title+"/"+media
             })
-    return medias_object
+    return sorted(medias_object, key=lambda k: k['id'])
 
 
 def create_background_image(title, medias, path):

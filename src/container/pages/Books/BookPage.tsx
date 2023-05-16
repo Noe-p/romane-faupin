@@ -131,7 +131,7 @@ const ImageContainer = styled.div`
 
 const ImageStyled = styled(Image)`
   width: 100%;
-  transform: rotate(0deg) important;
+  image-orientation: none;
 `;
 
 const DescriptionImageContainer = styled.div`

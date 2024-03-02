@@ -17,45 +17,45 @@ interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
 }
 
 export function H1(props: TextsProps): JSX.Element {
-  const { children, className, white } = props;
+  const { children, className } = props;
   return (
-    <H1Styled $white={white} {...props} className={className}>
+    <H1Styled {...props} className={className}>
       {children}
     </H1Styled>
   );
 }
 
 export function H2(props: TextsProps): JSX.Element {
-  const { children, className, white } = props;
+  const { children, className } = props;
   return (
-    <H2Styled $white={white} {...props} className={className}>
+    <H2Styled {...props} className={className}>
       {children}
     </H2Styled>
   );
 }
 
 export function H3(props: TextsProps): JSX.Element {
-  const { children, className, white } = props;
+  const { children, className } = props;
   return (
-    <H3Styled $white={white} {...props} className={className}>
+    <H3Styled {...props} className={className}>
       {children}
     </H3Styled>
   );
 }
 
 export function P1(props: TextsProps): JSX.Element {
-  const { children, className, white } = props;
+  const { children, className } = props;
   return (
-    <P1Styled $white={white} {...props} className={className}>
+    <P1Styled {...props} className={className}>
       {children}
     </P1Styled>
   );
 }
 
 export function P2(props: TextsProps): JSX.Element {
-  const { children, className, white } = props;
+  const { children, className } = props;
   return (
-    <P2Styled $white={white} {...props} className={className}>
+    <P2Styled {...props} className={className}>
       {children}
     </P2Styled>
   );
@@ -93,29 +93,23 @@ const H1Styled = styled.h1`
   font-family: 'Abel';
   line-height: 1;
   margin: 0;
-  color: ${({ $white }: { $white?: boolean }) =>
-    $white ? 'white' : COLORS.BLACK};
 `;
 
 const H2Styled = styled.h2`
   line-height: 1;
   margin: 0;
-  color: ${({ $white }: { $white?: boolean }) =>
-    $white ? 'white' : COLORS.BLACK};
+
   font-family: 'Abel';
 `;
 
 const H3Styled = styled.h3`
   line-height: 1;
   margin: 0;
-  color: ${({ $white }: { $white?: boolean }) =>
-    $white ? 'white' : COLORS.BLACK};
 `;
 
 const P1Styled = styled.p`
   margin: 0;
-  color: ${({ $white }: { $white?: boolean }) =>
-    $white ? 'white' : COLORS.BLACK};
+
   font-family: 'Abel';
   font-size: 1.2rem;
 `;
@@ -123,8 +117,6 @@ const P1Styled = styled.p`
 const P2Styled = styled(P1)`
   margin: 0;
   font-size: 1rem;
-  color: ${({ $white }: { $white?: boolean }) =>
-    $white ? 'white' : COLORS.BLACK};
 `;
 
 const LabelStyled = styled(P1)`

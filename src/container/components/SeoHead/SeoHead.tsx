@@ -1,12 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-interface SeoHeadProps {
-  title?: string;
-  description?: string;
-}
-
-export function SeoHead(props: SeoHeadProps): JSX.Element {
+export function SeoHead(): JSX.Element {
   const { asPath } = useRouter();
 
   const canonicalUrl = asPath.split('?')[0];

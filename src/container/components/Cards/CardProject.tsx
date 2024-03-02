@@ -156,6 +156,7 @@ const ProjectDescription = styled(P1)<{ $hover: boolean }>`
   background: rgba(0, 0, 0, 0) !important;
   z-index: 1;
   position: relative;
+  color: white;
 
   opacity: ${({ $hover }) => ($hover ? 1 : 0)};
   transform: ${({ $hover }) => ($hover ? 'translateY(0)' : 'translateY(70px)')};
@@ -194,6 +195,7 @@ const SeeMoreContainer = styled.div<{ $hover: boolean }>`
 
 const SeeMore = styled(P1)`
   margin-right: 10px;
+  color: white;
 `;
 
 const ProjectImageBackground = styled(Image)`

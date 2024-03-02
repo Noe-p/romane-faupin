@@ -11,7 +11,9 @@ import { Swiper as ReactSwiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import { NavigationOptions } from 'swiper/types/components/navigation';
-import { Image, Modal } from '../../../components';
+import { Modal } from '../../../components';
+import { Image } from '../../../components/Medias';
+
 import { COLORS } from '../../../themes';
 
 interface MediasSwiperProps {

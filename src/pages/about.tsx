@@ -1,10 +1,14 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
 import { AboutPage } from '../container/pages';
 import { PageBaseProps } from '../types';
+import { LayoutPage } from '@/components';
 
 export default function IndexPage(): JSX.Element {
-  return <AboutPage />;
+  return (
+    <LayoutPage>
+      <AboutPage />
+    </LayoutPage>
+  );
 }
 
 export async function getStaticProps({

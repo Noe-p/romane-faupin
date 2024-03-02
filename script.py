@@ -7,8 +7,8 @@ FILE_DESTINATION = "./public/projects/projects.json"
 
 
 class ProjectType(Enum):
-    BOOKS = 'book'
-    WORKS = "work"
+    BOOK = 'book'
+    WORK = "work"
     MICRO_EDITIONS = "micro-edition"
 
 
@@ -86,13 +86,13 @@ def merge_array(arr):
     return merged_list
 
 
-books = './public/projects/books'
-works = './public/projects/works'
+book = './public/projects/book'
+work = './public/projects/work'
 micro_editions = './public/projects/micro-editions'
 
 datas = []
-datas.append(run_in_foders(books))
-datas.append(run_in_foders(works))
+datas.append(run_in_foders(book))
+datas.append(run_in_foders(work))
 datas.append(run_in_foders(micro_editions))
 
 

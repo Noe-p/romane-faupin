@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { Image } from '../../../components';
+import { Image } from '../../../components/Medias';
 
 interface HeaderProps {
   className?: string;

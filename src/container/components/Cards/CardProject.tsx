@@ -1,9 +1,10 @@
-import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { H1, Image, P1 } from '../../../components';
+import { Image } from '../../../components/Medias';
+import { H1, P1 } from '@/components/Texts/Texts';
 import { COLORS } from '../../../themes';
 import { Project } from '../../../types';
+import { ArrowSmallRightIcon } from '@heroicons/react/24/solid';
 
 interface CardProjectProps {
   className?: string;
@@ -29,40 +30,53 @@ export function CardProject(props: CardProjectProps): JSX.Element {
 
   return (
     <ProjectContainer
+      className={`container ${className}`}
       onMouseEnter={() => setProjectHover(project.id)}
       onMouseLeave={() => setProjectHover('')}
-      className={className}
+      $hover={projectHover === project.id || isMobile}
       {...props}
     >
       <div>
-        <ProjectTitle white>{project.name}</ProjectTitle>
+        <ProjectTitle $hover={projectHover === project.id || isMobile} white>
+          {project.name}
+        </ProjectTitle>
         {project.description && isMobile ? (
-          <ProjectDescription className='desc' white>
+          <ProjectDescription
+            $hover={projectHover === project.id || isMobile}
+            className='desc'
+            white
+          >
             {project.description?.join(' ').length > 90
               ? project.description?.join(' ').slice(0, 90) + ' « ... »'
               : project.description?.join(' ')}
           </ProjectDescription>
         ) : (
           project.description?.map((desc, index) => (
-            <ProjectDescription key={index} className='desc' white>
+            <ProjectDescription
+              $hover={projectHover === project.id || isMobile}
+              key={index}
+              className='desc'
+              white
+            >
               {desc}
             </ProjectDescription>
           ))
         )}
+        <SeeMoreContainer $hover={projectHover === project.id || isMobile}>
+          <SeeMore white>{'Voir le projet'}</SeeMore>
+          <ArrowSmallRightIconStyled />
+        </SeeMoreContainer>
       </div>
       <ProjectImageBackground
         src={project.backgroundImage.url}
         alt={project.backgroundImage.id}
       />
-      <SeeMoreContainer $hover={projectHover === project.id || isMobile}>
-        <SeeMore white>{'Voir le projet'}</SeeMore>
-        <ArrowSmallRightIconStyled />
-      </SeeMoreContainer>
+      <Filter $hover={projectHover === project.id || isMobile} />
     </ProjectContainer>
   );
 }
 
-const ProjectContainer = styled.div`
+const ProjectContainer = styled.div<{ $hover: boolean }>`
   position: relative;
   width: 80%;
   height: auto;
@@ -83,34 +97,8 @@ const ProjectContainer = styled.div`
     transition: all 0.3s ease-in-out;
   }
 
-  h1,
-  .desc {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.3s ease-in-out;
-    padding: 20px;
-  }
-
-  :hover h1,
-  :hover .desc {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   :hover img {
     transform: scale(1.05);
-  }
-
-  :hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
   }
 
   @media (max-width: 768px) {
@@ -123,18 +111,6 @@ const ProjectContainer = styled.div`
       font-size: 2rem;
     }
 
-    ::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
     h1,
     .desc {
       opacity: 1;
@@ -143,17 +119,48 @@ const ProjectContainer = styled.div`
   }
 `;
 
-const ProjectTitle = styled(H1)`
-  line-height: 1;
+const Filter = styled.div<{ $hover: boolean }>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: ${({ $hover }) =>
+    $hover
+      ? 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)'
+      : 'linear-gradient(180deg, rgba(0, 0, 0, 00) 0%, rgba(0, 0, 0, 0) 100%)'};
+  transition: all 0.3s ease-in-out;
 `;
 
-const ProjectDescription = styled(P1)`
+const ProjectTitle = styled(H1)<{ $hover: boolean }>`
+  line-height: 1;
+  transform: ${({ $hover }) => ($hover ? 'translateY(0)' : 'translateY(50px)')};
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  z-index: 1;
+  color: white;
+  opacity: ${({ $hover }) => ($hover ? 1 : 0)} !important;
+  position: relative;
+`;
+
+const ProjectDescription = styled(P1)<{ $hover: boolean }>`
   line-height: 1;
   margin: 0 !important;
   padding-bottom: 5px !important;
   padding-top: 5px !important;
   width: 70%;
   line-height: 1.2;
+  background: rgba(0, 0, 0, 0) !important;
+  z-index: 1;
+  position: relative;
+
+  opacity: ${({ $hover }) => ($hover ? 1 : 0)};
+  transform: ${({ $hover }) => ($hover ? 'translateY(0)' : 'translateY(70px)')};
+  transition: all 0.4s ease-in-out;
+  padding: 20px;
 
   @media (max-width: 768px) {
     padding-top: 0;
@@ -172,6 +179,7 @@ const SeeMoreContainer = styled.div<{ $hover: boolean }>`
   padding: 15px 25px;
   opacity: ${({ $hover }) => ($hover ? 1 : 0)};
   transition: all 0.3s ease-in-out;
+  z-index: 1;
 
   p {
     font-size: 1.3rem;

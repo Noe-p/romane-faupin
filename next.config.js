@@ -1,25 +1,31 @@
+/** @type {import('next').NextConfig} */
+/* eslint-disable @typescript-eslint/no-var-requires, no-undef */
+
 const { i18n } = require('./next-i18next.config');
-const runtimeCaching = require('next-pwa/cache');
 
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  runtimeCaching,
-});
-
-module.exports = withPWA({
+const settings = {
   i18n,
-  // distDir: 'build',
   staticPageGenerationTimeout: 20000,
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty',
-      };
-    }
-
-    return config;
+  output: 'standalone',
+  // https://github.com/vercel/next.js/issues/48748#issuecomment-1578374105
+  modularizeImports: {
+    '@heroicons/react/outline/?(((\\w*)?/?)*)': {
+      transform: '@heroicons/react/outline/{{ matches.[1] }}/{{member}}',
+    },
+    '@heroicons/react/solid/?(((\\w*)?/?)*)': {
+      transform: '@heroicons/react/solid/{{ matches.[1] }}/{{member}}',
+    },
   },
-});
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.jambase.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+};
+
+module.exports = settings;

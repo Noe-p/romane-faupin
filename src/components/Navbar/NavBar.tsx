@@ -48,14 +48,14 @@ export function NavBar(props: NavBarProps): JSX.Element {
               <TextNavigation
                 $selected={`/${router.pathname.split('/')[1]}` === ROUTES.works}
               >
-                {t('works')}
+                {t('work')}
               </TextNavigation>
             </RightLink>
             <RightLink onClick={() => router.push(ROUTES.books)}>
               <TextNavigation
                 $selected={`/${router.pathname.split('/')[1]}` === ROUTES.books}
               >
-                {t('books')}
+                {t('book')}
               </TextNavigation>
             </RightLink>
             <RightLink onClick={() => router.push(ROUTES.microsEditions)}>

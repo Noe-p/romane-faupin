@@ -365,6 +365,46 @@
     ]
   },
   {
+    "id": "toujours-l\u00e0",
+    "name": "Toujours-l\u00e0",
+    "backgroundImage": {
+      "id": "toujours-l\u00e0-background",
+      "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0003.webP"
+    },
+    "description": [
+      "Reluire japonaise r\u00e9alis\u00e9 pour le livre d\u2019artiste \"Toujours L\u00e0 \u00bb du photographe Antonio Gaudencio",
+      "certifi\u00e9, sign\u00e9, en \u00e9dition limit\u00e9e \u00e0 20 exemplaires."
+    ],
+    "type": "micro-edition",
+    "date": "2021-01-01",
+    "medias": [
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0001.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0001.webP"
+      },
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0002.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0002.webP"
+      },
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0003.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0003.webP"
+      },
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0004.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0004.webP"
+      },
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0005.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0005.webP"
+      },
+      {
+        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0006.webp",
+        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0006.webP"
+      }
+    ]
+  },
+  {
     "id": "1930",
     "name": "1930",
     "backgroundImage": {
@@ -410,46 +450,6 @@
       {
         "id": "1930-faupin_hdph321_008_1930.webp",
         "url": "/projects/micro-editions/1930/FAUPIN_HDPH321_008_1930.webP"
-      }
-    ]
-  },
-  {
-    "id": "toujours-l\u00e0",
-    "name": "Toujours-l\u00e0",
-    "backgroundImage": {
-      "id": "toujours-l\u00e0-background",
-      "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0003.webP"
-    },
-    "description": [
-      "Reluire japonaise r\u00e9alis\u00e9 pour le livre d\u2019artiste \"Toujours L\u00e0 \u00bb du photographe Antonio Gaudencio",
-      "certifi\u00e9, sign\u00e9, en \u00e9dition limit\u00e9e \u00e0 20 exemplaires."
-    ],
-    "type": "micro-edition",
-    "date": "2021-01-01",
-    "medias": [
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0001.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0001.webP"
-      },
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0002.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0002.webP"
-      },
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0003.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0003.webP"
-      },
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0004.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0004.webP"
-      },
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0005.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0005.webP"
-      },
-      {
-        "id": "toujours-l\u00e0-livre_toujoursla_agaudencio_small_0006.webp",
-        "url": "/projects/micro-editions/Toujours-l\u00e0/Livre_Toujoursla_AGAUDENCIO_Small_0006.webP"
       }
     ]
   }

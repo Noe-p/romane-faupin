@@ -92,13 +92,13 @@ export function NavBar(props: NavBarProps): JSX.Element {
                 $selected={`/${router.pathname.split('/')[1]}` === ROUTES.works}
                 onClick={() => router.push(ROUTES.works)}
               >
-                {t('works')}
+                {t('work')}
               </MenuLink>
               <MenuLink
                 $selected={`/${router.pathname.split('/')[1]}` === ROUTES.books}
                 onClick={() => router.push(ROUTES.books)}
               >
-                {t('books')}
+                {t('book')}
               </MenuLink>
               <MenuLink
                 $selected={

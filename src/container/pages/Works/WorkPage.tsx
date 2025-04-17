@@ -116,9 +116,9 @@ const Description = styled(P1)`
 
 const ImagesContainer = styled.div`
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
 `;
 
 const ImageContainer = styled.div`

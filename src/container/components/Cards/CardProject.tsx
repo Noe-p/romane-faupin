@@ -1,4 +1,4 @@
-import { H1 } from '@/components/Texts/Texts';
+import { H2 } from '@/components/Texts';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Image } from '../../../components/Medias';
@@ -78,7 +78,7 @@ const ProjectContainer = styled.div<{ $hover: boolean }>`
   }
 `;
 
-const ProjectTitle = styled(H1)`
+const ProjectTitle = styled(H2)`
   line-height: 1;
   padding: 20px;
   z-index: 1;

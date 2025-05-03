@@ -1,0 +1,83 @@
+{
+  "home": {
+    "title": "Romane Faupin — Photographe & Plasticienne",
+    "description": "Portfolio de Romane Faupin, photographe et plasticienne à Paris. Découvrez ses travaux mêlant émulsion liquide, linogravure et monotype.",
+    "keywords": "Romane Faupin, photographe, plasticienne, portfolio, Paris, émulsion liquide, linogravure, monotype"
+  },
+  "about": {
+    "title": "À propos — Romane Faupin, photographe & plasticienne",
+    "description": "Romane Faupin, photographe et plasticienne à Paris, utilise émulsion liquide, linogravure et monotype pour questionner mémoire et obsolescence.",
+    "keywords": "Romane Faupin, photographe, plasticienne, mémoire, obsolescence, Paris"
+  },
+  "books": {
+    "title": "Livres — Romane Faupin, photographe & plasticienne",
+    "description": "Découvrez les livres de Romane Faupin mêlant photographie et procédés plastiques pour interroger paysages et textures naturelles.",
+    "keywords": "Romane Faupin, livres, photographie, plastique, Hippodrome, Vitrine du XIII, Apiculture"
+  },
+  "book": {
+    "hippodrome": {
+      "title": "Hippodrome — Livre photo | Romane Faupin",
+      "description": "Hippodrome (2021) est un livre photo de Romane Faupin explorant l’architecture des hippodromes à travers une série visuelle.",
+      "keywords": "Hippodrome, livre photo, architecture, Romane Faupin, 2021"
+    },
+    "vitrine-du-xiii": {
+      "title": "Vitrine du XIII — Livre photo | Romane Faupin",
+      "description": "Vitrine du XIII (2021) capte l’esthétique des vitrines du 13e arrondissement de Paris à travers la photographie.",
+      "keywords": "Vitrine du XIII, livre photo, Paris, Romane Faupin, 2021"
+    },
+    "apiculture": {
+      "title": "Apiculture — Livre photo | Romane Faupin",
+      "description": "Apiculture (2021) explore le monde des abeilles et les textures des ruches à travers l’objectif photographique de Romane Faupin.",
+      "keywords": "Apiculture, abeilles, livre photo, Romane Faupin, 2021"
+    }
+  },
+  "works": {
+    "title": "Projets & travaux — Romane Faupin",
+    "description": "Découvrez les projets artistiques de Romane Faupin explorant mémoire, évanescence et obsolescence des objets, lieux et images.",
+    "keywords": "Romane Faupin, projets, photographie, mémoire, évanescence, plasticienne"
+  },
+  "work": {
+    "épaves-de-la-rance": {
+      "title": "Épaves de la Rance — Projet photo | Romane Faupin",
+      "description": "Épaves de la Rance (2021) interroge l’obsolescence des objets via des fragments de bois et métal collectés sur les berges de la Rance.",
+      "keywords": "Épaves de la Rance, projet photo, obsolescence, Bretagne, Romane Faupin"
+    },
+    "étoiles-de-renaudie": {
+      "title": "Étoiles de Renaudie — Projet photo | Romane Faupin",
+      "description": "Étoiles de Renaudie (2021) met en lumière l’architecture en étoiles d’Ivry-sur-Seine via techniques artistiques variées.",
+      "keywords": "Étoiles de Renaudie, Ivry-sur-Seine, projet photo, Romane Faupin"
+    },
+    "résurgence": {
+      "title": "Résurgence — Projet photo | Romane Faupin",
+      "description": "Résurgence (2021) propose des images altérées par solarisation et effets organiques, créant une nouvelle temporalité.",
+      "keywords": "Résurgence, solarisation, projet photo, Romane Faupin, 2021"
+    },
+    "sur-les-traces-de-chateaubriand": {
+      "title": "Sur Les Traces De Chateaubriand — Projet photo | Romane Faupin",
+      "description": "Sur Les Traces De Chateaubriand (2021) mêle récits et paysages pour inviter à un voyage entre passé et présent.",
+      "keywords": "Chateaubriand, projet photo, récit, paysage, Romane Faupin"
+    }
+  },
+  "micro-editions": {
+    "title": "Micro-éditions — Romane Faupin",
+    "description": "Explorez les micro-éditions 2021 de Romane Faupin, alliant photographie et supports plastiques en séries limitées.",
+    "keywords": "Romane Faupin, micro-édition, édition limitée, photographie"
+  },
+  "micro-edition": {
+    "étoiles-de-renaudie": {
+      "title": "Étoiles de Renaudie — Micro-édition | Romane Faupin",
+      "description": "Micro-édition 2021 d’Étoiles de Renaudie : série de tirages limités illustrant l’architecture étoilée d’Ivry-sur-Seine.",
+      "keywords": "Étoiles de Renaudie, micro-édition, Romane Faupin"
+    },
+    "toujours-là": {
+      "title": "Toujours-là — Micro-édition | Romane Faupin",
+      "description": "Toujours-là (2021) est une reliure japonaise signée et limitée à 20 exemplaires pour le livre d’artiste d’Antonio Gaudencio.",
+      "keywords": "Toujours-là, micro-édition, reliure japonaise, Romane Faupin"
+    },
+    "1930": {
+      "title": "1930 — Micro-édition | Romane Faupin",
+      "description": "1930 (2021) est une micro-édition racontant la nostalgie d’une époque révolue via des photographies retrouvées.",
+      "keywords": "1930, micro-édition, nostalgie, Romane Faupin"
+    }
+  }
+}

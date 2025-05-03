@@ -1,3 +1,5 @@
+import { SeoPage } from '@/components/Layout/SeoPage';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { FullPageLoader } from '../../components';
 import { MicroEditionPage } from '../../container/pages';
@@ -11,8 +13,17 @@ export default function DynamicPageExemple(
   props: DynamicPageExempleProps
 ): JSX.Element {
   const { idPage } = props;
+  const { t } = useTranslation();
+  const title = t(`metas:micro-edition.${idPage}.title`);
+  const description = t(`metas:micro-edition.${idPage}.description`);
+  const keywords = t(`metas:micro-edition.${idPage}.keywords`);
+
   if (!idPage) return <FullPageLoader />;
-  return <MicroEditionPage idPage={idPage} />;
+  return (
+    <SeoPage title={title} description={description} keywords={keywords}>
+      <MicroEditionPage idPage={idPage} />
+    </SeoPage>
+  );
 }
 
 export async function getStaticProps({

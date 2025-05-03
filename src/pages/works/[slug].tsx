@@ -1,3 +1,5 @@
+import { SeoPage } from '@/components/Layout/SeoPage';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { FullPageLoader } from '../../components';
 import { WorkPage } from '../../container/pages';
@@ -11,8 +13,17 @@ export default function DynamicPageExemple(
   props: DynamicPageExempleProps
 ): JSX.Element {
   const { idPage } = props;
+  const { t } = useTranslation();
+  const title = t(`metas:work.${idPage}.title`);
+  const description = t(`metas:work.${idPage}.description`);
+  const keywords = t(`metas:work.${idPage}.keywords`);
+
   if (!idPage) return <FullPageLoader />;
-  return <WorkPage idPage={idPage} />;
+  return (
+    <SeoPage title={title} description={description} keywords={keywords}>
+      <WorkPage idPage={idPage} />
+    </SeoPage>
+  );
 }
 
 export async function getStaticProps({

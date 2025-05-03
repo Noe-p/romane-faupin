@@ -1,35 +1,104 @@
+import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-export function SeoHead(): JSX.Element {
+interface SeoHeadProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
+}
+
+export function SeoHead({
+  title: customTitle,
+  description: customDesc,
+  keywords: customKeywords,
+}: SeoHeadProps): React.JSX.Element {
   const { asPath } = useRouter();
+  const { t } = useTranslation('metas');
 
-  const canonicalUrl = asPath.split('?')[0];
+  const canonicalPath = asPath.split('?')[0];
+  const domain = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/+$/, '');
+  const url = `${domain}${canonicalPath === '/' ? '' : canonicalPath}`;
+  const image = `${domain}/og.png`;
 
-  const title = 'Romane Faupin';
+  // fallbacks from i18n
+  const title =
+    customTitle ??
+    t(`${canonicalPath === '/' ? 'home' : canonicalPath.slice(1)}.title`);
   const description =
-    "Née en 1999, Romane FAUPIN vit et travaille à Paris. Après des études technique de photographie, elle s'oriente vers une production plasticienne.";
-  const domain = `${process.env.NEXT_PUBLIC_APP_URL}`;
-  const url = `${domain}/${canonicalUrl === '/' ? '' : canonicalUrl}`;
-  const image = 'favicon.jpg';
+    customDesc ??
+    t(`${canonicalPath === '/' ? 'home' : canonicalPath.slice(1)}.description`);
+  const keywords =
+    customKeywords ??
+    t(`${canonicalPath === '/' ? 'home' : canonicalPath.slice(1)}.keywords`);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: domain,
+    name: title,
+    author: {
+      '@type': 'Person',
+      name: 'Romane Faupin',
+    },
+  };
 
   return (
     <Head>
+      {/* Basic tags */}
       <title>{title}</title>
       <meta name='description' content={description} />
+      {keywords && <meta name='keywords' content={keywords} />}
+      <meta name='robots' content='index, follow' />
+      <link rel='canonical' href={url} />
 
+      {/* Open Graph */}
+      <meta property='og:site_name' content='Romane Faupin Portfolio' />
       <meta property='og:url' content={url} />
       <meta property='og:type' content='website' />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
       <meta property='og:image' content={image} />
 
+      {/* Twitter Card */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta property='twitter:domain' content={domain} />
-      <meta property='twitter:url' content={url} />
+      <meta
+        name='twitter:domain'
+        content={domain?.replace(/^https?:\/\//, '')}
+      />
+      <meta name='twitter:url' content={url} />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
       <meta name='twitter:image' content={image} />
+
+      {/* Google Analytics */}
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', { page_path: window.location.pathname });
+          `,
+        }}
+      />
+
+      {/* Manifest */}
+      <link rel='manifest' href='/manifest.json' />
+      <meta name='viewport' content='width=device-width, initial-scale=1' />
+      <meta name='theme-color' content='hsl(0 3% 14%)' />
+
+      {/* JSON-LD structured data */}
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
     </Head>
   );
 }

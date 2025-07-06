@@ -46,7 +46,7 @@ export function Footer(props: FooterProps): JSX.Element {
       </SocialMediasContainer>
       <CopyRight>
         {t('generics.designed')}
-        <LinkStyled href='https://noe-philippe.com' target='_blank'>
+        <LinkStyled href='https://noe-philippe.fr' target='_blank'>
           {'Noé PHILIPPE'}
         </LinkStyled>
       </CopyRight>
